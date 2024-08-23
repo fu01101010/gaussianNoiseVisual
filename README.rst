@@ -1,6 +1,6 @@
-##########################
-gaussianNoiseVisualisation
-##########################
+###################
+gaussianNoiseVisual
+###################
 
 0: about this project
 =====================
