@@ -7,8 +7,8 @@ gaussianNoiseVisual
 
 launch this application and see the visualisation of the gaussian white noise. the goal of this project is to practice working with OpenGL and statistics as both are relevant skills nowadays.
 
-1: project layout
-=================
+1.1: project layout
+===================
 
 - :code:`root`: The :code:`CMakeLists.txt` and :code:`.command` files are located directly in the root folder.
 
@@ -17,6 +17,14 @@ launch this application and see the visualisation of the gaussian white noise. t
   - :code:`/build`: contains the :code:`cmake` generated build files.
 
   - :code:`/source`: contains the :code:`main.cpp` source file and other headers.
+
+1.2: branches
+
+- this code has two branches:
+
+  - we commitin' minor changes and non-release version to the :code:`develop` branch.
+
+  - and major release versions to the :code:`master` branch.
 
 2: cmake
 ========
