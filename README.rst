@@ -19,6 +19,7 @@ launch this application and see the visualisation of the gaussian white noise. t
   - :code:`/source`: contains the :code:`main.cpp` source file and other headers.
 
 1.2: branches
+=============
 
 - this code has two branches:
 
