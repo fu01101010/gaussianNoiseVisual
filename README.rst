@@ -23,7 +23,7 @@ launch this application and see the visualisation of the gaussian white noise. t
 
 - this code has two branches:
 
-  - we commitin' minor changes and non-release version to the :code:`develop` branch.
+  - we commitin' minor changes and non-release versions to the :code:`develop` branch.
 
   - and major release versions to the :code:`master` branch.
 
