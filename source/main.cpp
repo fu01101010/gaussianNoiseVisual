@@ -14,6 +14,7 @@
 
 #include "io/mouse.h"
 #include "io/keyboard.h"
+#include "io/screen.h"
 
 
 void framebufferSizeCallback(GLFWwindow* window, int width, int height);
