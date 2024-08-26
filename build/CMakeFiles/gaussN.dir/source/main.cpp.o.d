@@ -487,4 +487,6 @@ CMakeFiles/gaussN.dir/source/main.cpp.o: \
   /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/./include/glm/gtc/../mat4x3.hpp \
   /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/./include/glm/gtc/type_ptr.inl \
   /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/io/mouse.h \
-  /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/io/keyboard.h
+  /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/io/keyboard.h \
+  /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/io/screen.h \
+  /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/io/camera.h
