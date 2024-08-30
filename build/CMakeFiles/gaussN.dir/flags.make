@@ -5,13 +5,13 @@
 # compile CXX with /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++
 C_DEFINES = 
 
-C_INCLUDES = -I/users/ulysses/Desktop/source/projects/gaussianNoiseVisual/./include
+C_INCLUDES = -I/users/ulysses/Desktop/source/projects/gaussianNoiseVisual/./include -I/users/ulysses/Desktop/source/projects/gaussianNoiseVisual/./source/io -I/users/ulysses/Desktop/source/projects/gaussianNoiseVisual/./source/graphics
 
 C_FLAGS =  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/users/ulysses/Desktop/source/projects/gaussianNoiseVisual/./include
+CXX_INCLUDES = -I/users/ulysses/Desktop/source/projects/gaussianNoiseVisual/./include -I/users/ulysses/Desktop/source/projects/gaussianNoiseVisual/./source/io -I/users/ulysses/Desktop/source/projects/gaussianNoiseVisual/./source/graphics
 
 CXX_FLAGS =  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk
 

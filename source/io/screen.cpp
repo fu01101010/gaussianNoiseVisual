@@ -18,7 +18,7 @@ screen::screen() : window(nullptr) {}
 
 bool screen::init() {
 	
-	window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "GameDemo", nullptr, nullptr);
+	window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "gaussN", nullptr, nullptr);
 	if (!window) {
 
 		// window not created

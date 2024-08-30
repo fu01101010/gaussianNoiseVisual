@@ -12,31 +12,30 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-#include "io/mouse.h"
-#include "io/keyboard.h"
-#include "io/screen.h"
-#include "io/camera.h"
+#include "../source/io/mouse.h"
+#include "../source/io/keyboard.h"
+#include "../source/io/screen.h"
+#include "../source/io/camera.h"
 
 
 void framebufferSizeCallback(GLFWwindow* window, int width, int height);
-void processInput(GLFWwindow *window);
+void processInput(double _dt);
 
 std::string loadShaderSrc(const char* filename);
 
 // settings
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
+screen Screen;
+
+double dt = 0.0f;
+double lastFrame = 0.0f;
+double currentTime = 0.0f;
 
 int main()
 {
 	int success;
 	char infoLog[512];
-
-	//glm test here
-	//glm::vec3 vec(1.0f, 2.0f, 3.0f);
-	//std::cout << vec.x << " " << vec.y << " " << vec.z << std::endl;
-
-	// glfw: initialize and configure
 
 	glfwInit();
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -46,28 +45,24 @@ int main()
 #ifdef __APPLE__
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 #endif
-
+	
 	std::cout << "Hello, endless space!" << std::endl;
 	// glfw window creation
-
-	GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "gaussN", NULL, NULL);
-	if (window == nullptr) {
+	
+	if (!Screen.init()) {
+		
 		std::cout << "Failed to create GLFW window" << std::endl;
+
 		glfwTerminate();
 		return -1;
 	}
-	
-	glfwMakeContextCurrent(window);
-	glfwSetFramebufferSizeCallback(window, framebufferSizeCallback);
-
-	// glad: load all OpenGL function pointers
 
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
 		std::cout << "Failed to initialize GLAD" << std::endl;
 		return -1;
 	}
 
-	glViewport(0, 0, 800, 600);
+	Screen.setParameters();
 
 	float vertices[] = {
 		-0.5f, -0.5f, 0.0f,
@@ -145,11 +140,14 @@ int main()
 
 	// render loop
 
-	while (!glfwWindowShouldClose(window)) {
+	while (!Screen.shouldClose()) {
+
+		currentTime = glfwGetTime();
+		dt = currentTime - lastFrame;
+		lastFrame = currentTime;
+
 		// input
-		
-		glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT);
+		Screen.update();
 
 		// use shader program
 		glUseProgram(shaderProgram);
@@ -158,12 +156,11 @@ int main()
 		// draw triangle
 		glDrawArrays(GL_TRIANGLES, 0, 3);
 
-		processInput(window);
+		processInput(dt);
 
 		// glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
-
-		glfwSwapBuffers(window);
-		glfwPollEvents();
+		
+		Screen.newFrame();
 	}
 
 	// glfw: terminate, clearing all previously allocated GLFW resources.
@@ -174,9 +171,10 @@ int main()
 
 // process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly
 
-void processInput(GLFWwindow *window) {
-	if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-		glfwSetWindowShouldClose(window, true);
+void processInput(double _dt) {
+
+	if(keyboard::key(GLFW_KEY_ESCAPE))
+		Screen.setShouldClose(true);
 }
 
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes
