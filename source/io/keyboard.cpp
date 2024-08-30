@@ -5,7 +5,7 @@ bool keyboard::keys[GLFW_KEY_LAST] = { 0 };
 bool keyboard::keysStateChanged[GLFW_KEY_LAST] = { 0 };
 
 // keystate callback
-void keyboard::keyCallback(GLFWwindow* window, int key, int scancode, int actiob, int mods) {
+void keyboard::keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods) {
 
 	if (action != GLFW_RELEASE) {
 

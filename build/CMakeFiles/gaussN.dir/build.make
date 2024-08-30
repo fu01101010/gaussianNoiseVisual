@@ -97,20 +97,84 @@ CMakeFiles/gaussN.dir/source/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/gaussN.dir/source/main.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/main.cpp -o CMakeFiles/gaussN.dir/source/main.cpp.s
 
+CMakeFiles/gaussN.dir/source/io/screen.cpp.o: CMakeFiles/gaussN.dir/flags.make
+CMakeFiles/gaussN.dir/source/io/screen.cpp.o: /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/io/screen.cpp
+CMakeFiles/gaussN.dir/source/io/screen.cpp.o: CMakeFiles/gaussN.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/users/ulysses/Desktop/source/projects/gaussianNoiseVisual/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/gaussN.dir/source/io/screen.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gaussN.dir/source/io/screen.cpp.o -MF CMakeFiles/gaussN.dir/source/io/screen.cpp.o.d -o CMakeFiles/gaussN.dir/source/io/screen.cpp.o -c /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/io/screen.cpp
+
+CMakeFiles/gaussN.dir/source/io/screen.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/gaussN.dir/source/io/screen.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/io/screen.cpp > CMakeFiles/gaussN.dir/source/io/screen.cpp.i
+
+CMakeFiles/gaussN.dir/source/io/screen.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/gaussN.dir/source/io/screen.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/io/screen.cpp -o CMakeFiles/gaussN.dir/source/io/screen.cpp.s
+
+CMakeFiles/gaussN.dir/source/io/camera.cpp.o: CMakeFiles/gaussN.dir/flags.make
+CMakeFiles/gaussN.dir/source/io/camera.cpp.o: /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/io/camera.cpp
+CMakeFiles/gaussN.dir/source/io/camera.cpp.o: CMakeFiles/gaussN.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/users/ulysses/Desktop/source/projects/gaussianNoiseVisual/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/gaussN.dir/source/io/camera.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gaussN.dir/source/io/camera.cpp.o -MF CMakeFiles/gaussN.dir/source/io/camera.cpp.o.d -o CMakeFiles/gaussN.dir/source/io/camera.cpp.o -c /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/io/camera.cpp
+
+CMakeFiles/gaussN.dir/source/io/camera.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/gaussN.dir/source/io/camera.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/io/camera.cpp > CMakeFiles/gaussN.dir/source/io/camera.cpp.i
+
+CMakeFiles/gaussN.dir/source/io/camera.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/gaussN.dir/source/io/camera.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/io/camera.cpp -o CMakeFiles/gaussN.dir/source/io/camera.cpp.s
+
+CMakeFiles/gaussN.dir/source/io/keyboard.cpp.o: CMakeFiles/gaussN.dir/flags.make
+CMakeFiles/gaussN.dir/source/io/keyboard.cpp.o: /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/io/keyboard.cpp
+CMakeFiles/gaussN.dir/source/io/keyboard.cpp.o: CMakeFiles/gaussN.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/users/ulysses/Desktop/source/projects/gaussianNoiseVisual/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/gaussN.dir/source/io/keyboard.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gaussN.dir/source/io/keyboard.cpp.o -MF CMakeFiles/gaussN.dir/source/io/keyboard.cpp.o.d -o CMakeFiles/gaussN.dir/source/io/keyboard.cpp.o -c /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/io/keyboard.cpp
+
+CMakeFiles/gaussN.dir/source/io/keyboard.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/gaussN.dir/source/io/keyboard.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/io/keyboard.cpp > CMakeFiles/gaussN.dir/source/io/keyboard.cpp.i
+
+CMakeFiles/gaussN.dir/source/io/keyboard.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/gaussN.dir/source/io/keyboard.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/io/keyboard.cpp -o CMakeFiles/gaussN.dir/source/io/keyboard.cpp.s
+
+CMakeFiles/gaussN.dir/source/io/mouse.cpp.o: CMakeFiles/gaussN.dir/flags.make
+CMakeFiles/gaussN.dir/source/io/mouse.cpp.o: /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/io/mouse.cpp
+CMakeFiles/gaussN.dir/source/io/mouse.cpp.o: CMakeFiles/gaussN.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/users/ulysses/Desktop/source/projects/gaussianNoiseVisual/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/gaussN.dir/source/io/mouse.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gaussN.dir/source/io/mouse.cpp.o -MF CMakeFiles/gaussN.dir/source/io/mouse.cpp.o.d -o CMakeFiles/gaussN.dir/source/io/mouse.cpp.o -c /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/io/mouse.cpp
+
+CMakeFiles/gaussN.dir/source/io/mouse.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/gaussN.dir/source/io/mouse.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/io/mouse.cpp > CMakeFiles/gaussN.dir/source/io/mouse.cpp.i
+
+CMakeFiles/gaussN.dir/source/io/mouse.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/gaussN.dir/source/io/mouse.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/io/mouse.cpp -o CMakeFiles/gaussN.dir/source/io/mouse.cpp.s
+
 # Object files for target gaussN
 gaussN_OBJECTS = \
 "CMakeFiles/gaussN.dir/source/glad.c.o" \
-"CMakeFiles/gaussN.dir/source/main.cpp.o"
+"CMakeFiles/gaussN.dir/source/main.cpp.o" \
+"CMakeFiles/gaussN.dir/source/io/screen.cpp.o" \
+"CMakeFiles/gaussN.dir/source/io/camera.cpp.o" \
+"CMakeFiles/gaussN.dir/source/io/keyboard.cpp.o" \
+"CMakeFiles/gaussN.dir/source/io/mouse.cpp.o"
 
 # External object files for target gaussN
 gaussN_EXTERNAL_OBJECTS =
 
 gaussN: CMakeFiles/gaussN.dir/source/glad.c.o
 gaussN: CMakeFiles/gaussN.dir/source/main.cpp.o
+gaussN: CMakeFiles/gaussN.dir/source/io/screen.cpp.o
+gaussN: CMakeFiles/gaussN.dir/source/io/camera.cpp.o
+gaussN: CMakeFiles/gaussN.dir/source/io/keyboard.cpp.o
+gaussN: CMakeFiles/gaussN.dir/source/io/mouse.cpp.o
 gaussN: CMakeFiles/gaussN.dir/build.make
 gaussN: /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/libs/glfw/lib-x86_64/libglfw.3.dylib
 gaussN: CMakeFiles/gaussN.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/users/ulysses/Desktop/source/projects/gaussianNoiseVisual/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable gaussN"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/users/ulysses/Desktop/source/projects/gaussianNoiseVisual/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable gaussN"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gaussN.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

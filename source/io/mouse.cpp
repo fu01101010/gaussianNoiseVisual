@@ -14,16 +14,16 @@ double mouse::scrollDY = 0;
 
 bool mouse::firstMouseMovement = true;
 
-bool mouse::buttos[GLFW_MOUSE_BUTTON_LAST] = { 0 };
+bool mouse::buttons[GLFW_MOUSE_BUTTON_LAST] = { 0 };
 bool mouse::buttonsStateChanged[GLFW_MOUSE_BUTTON_LAST] = { 0 };
 
 // mouse state callback funcs
-void mouse::cursorPosCallback(GLFWwindow* window, double _x, double _x) {
+void mouse::cursorPosCallback(GLFWwindow* window, double _x, double _y) {
 
 	x = _x;
 	y = _y;
 
-	if (furstMouseMovement) {
+	if (firstMouseMovement) {
 
 		lastX = x;
 		lastY = y;
@@ -54,7 +54,7 @@ void mouse::mouseButtonCallback(GLFWwindow* window, int button, int action, int 
 	buttonsStateChanged[button] = action != GLFW_REPEAT;
 }
 
-void mouse::mouseWheelCallback(GLFWwindow* window, double _dx, double _dx) {
+void mouse::mouseWheelCallback(GLFWwindow* window, double _dx, double _dy) {
 
 	scrollDX = _dx;
 	scrollDY = _dy;
@@ -103,7 +103,7 @@ double mouse::getScrollDY() {
 	return _dy;
 }
 
-bool mouse::mouse(int button) {
+bool mouse::button(int button) {
 
 	return buttons[button];
 }

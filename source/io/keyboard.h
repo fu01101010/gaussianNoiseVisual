@@ -9,7 +9,7 @@ class keyboard {
 public:
 	
 	// keystate callncak func
-	static void keyCallback(GLFWwindow* window, int key, int scancode, int actiob, int mods);
+	static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
 
 	// accessor funcs
 	static bool key(int key);

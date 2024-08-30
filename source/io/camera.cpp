@@ -35,7 +35,7 @@ void camera::updateCameraPosition(cameraDirection direction, double _dt) {
 
 	switch (direction) {
 
-		case cameraDirection::FORWARD: {
+		case (cameraDirection::FORWARD): {
 
 			cameraPosition += cameraFront * velocity;
 			break;
@@ -58,13 +58,18 @@ void camera::updateCameraPosition(cameraDirection direction, double _dt) {
 		case cameraDirection::UP: {
 
 			//cameraPosition += cameraUp * velocity;
-			cameraPosition += WorldUp * velocity;
+			cameraPosition += worldUp * velocity;
 			break;
 		}
 		case cameraDirection::DOWN: {
 
 			//cameraPosition -= cameraUp * velocity;
-			cameraPosition -= WorldUp * velocity;
+			cameraPosition -= worldUp * velocity;
+			break;
+		}
+		
+		case cameraDirection::NONE: {
+			
 			break;
 		}
 	}

@@ -198,6 +198,102 @@ source/glad.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/glad.c.s
 .PHONY : source/glad.c.s
 
+source/io/camera.o: source/io/camera.cpp.o
+.PHONY : source/io/camera.o
+
+# target to build an object file
+source/io/camera.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/io/camera.cpp.o
+.PHONY : source/io/camera.cpp.o
+
+source/io/camera.i: source/io/camera.cpp.i
+.PHONY : source/io/camera.i
+
+# target to preprocess a source file
+source/io/camera.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/io/camera.cpp.i
+.PHONY : source/io/camera.cpp.i
+
+source/io/camera.s: source/io/camera.cpp.s
+.PHONY : source/io/camera.s
+
+# target to generate assembly for a file
+source/io/camera.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/io/camera.cpp.s
+.PHONY : source/io/camera.cpp.s
+
+source/io/keyboard.o: source/io/keyboard.cpp.o
+.PHONY : source/io/keyboard.o
+
+# target to build an object file
+source/io/keyboard.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/io/keyboard.cpp.o
+.PHONY : source/io/keyboard.cpp.o
+
+source/io/keyboard.i: source/io/keyboard.cpp.i
+.PHONY : source/io/keyboard.i
+
+# target to preprocess a source file
+source/io/keyboard.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/io/keyboard.cpp.i
+.PHONY : source/io/keyboard.cpp.i
+
+source/io/keyboard.s: source/io/keyboard.cpp.s
+.PHONY : source/io/keyboard.s
+
+# target to generate assembly for a file
+source/io/keyboard.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/io/keyboard.cpp.s
+.PHONY : source/io/keyboard.cpp.s
+
+source/io/mouse.o: source/io/mouse.cpp.o
+.PHONY : source/io/mouse.o
+
+# target to build an object file
+source/io/mouse.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/io/mouse.cpp.o
+.PHONY : source/io/mouse.cpp.o
+
+source/io/mouse.i: source/io/mouse.cpp.i
+.PHONY : source/io/mouse.i
+
+# target to preprocess a source file
+source/io/mouse.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/io/mouse.cpp.i
+.PHONY : source/io/mouse.cpp.i
+
+source/io/mouse.s: source/io/mouse.cpp.s
+.PHONY : source/io/mouse.s
+
+# target to generate assembly for a file
+source/io/mouse.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/io/mouse.cpp.s
+.PHONY : source/io/mouse.cpp.s
+
+source/io/screen.o: source/io/screen.cpp.o
+.PHONY : source/io/screen.o
+
+# target to build an object file
+source/io/screen.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/io/screen.cpp.o
+.PHONY : source/io/screen.cpp.o
+
+source/io/screen.i: source/io/screen.cpp.i
+.PHONY : source/io/screen.i
+
+# target to preprocess a source file
+source/io/screen.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/io/screen.cpp.i
+.PHONY : source/io/screen.cpp.i
+
+source/io/screen.s: source/io/screen.cpp.s
+.PHONY : source/io/screen.s
+
+# target to generate assembly for a file
+source/io/screen.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/io/screen.cpp.s
+.PHONY : source/io/screen.cpp.s
+
 source/main.o: source/main.cpp.o
 .PHONY : source/main.o
 
@@ -238,6 +334,18 @@ help:
 	@echo "... source/glad.o"
 	@echo "... source/glad.i"
 	@echo "... source/glad.s"
+	@echo "... source/io/camera.o"
+	@echo "... source/io/camera.i"
+	@echo "... source/io/camera.s"
+	@echo "... source/io/keyboard.o"
+	@echo "... source/io/keyboard.i"
+	@echo "... source/io/keyboard.s"
+	@echo "... source/io/mouse.o"
+	@echo "... source/io/mouse.i"
+	@echo "... source/io/mouse.s"
+	@echo "... source/io/screen.o"
+	@echo "... source/io/screen.i"
+	@echo "... source/io/screen.s"
 	@echo "... source/main.o"
 	@echo "... source/main.i"
 	@echo "... source/main.s"

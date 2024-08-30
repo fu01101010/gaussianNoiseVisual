@@ -9,7 +9,7 @@ class mouse {
 public:
 
 	// mouse state callback funcs
-	static void cursorPositionCallback(GLFWwindow* window, double _x, double _y);
+	static void cursorPosCallback(GLFWwindow* window, double _x, double _y);
 	static void mouseButtonCallback(GLFWwindow* window, int button, int action, int mods);
 	static void mouseWheelCallback(GLFWwindow* window, double _dx, double _dy);
 
@@ -30,14 +30,14 @@ public:
 
 private:
 
-	static double X;
-	static double Y;
+	static double x;
+	static double y;
 
 	static double lastX;
 	static double lastY;
 
-	static double DX;
-	static double DY;
+	static double dx;
+	static double dy;
 
 	static double scrollDX;
 	static double scrollDY;

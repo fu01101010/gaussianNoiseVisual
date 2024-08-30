@@ -10,8 +10,8 @@ void screen::framebufferSizeCallback(GLFWwindow* window, int width, int height) 
 
 	glViewport(0, 0, width, height);
 
-	SCR_HEIGHT = HEIGHT;
-	SCR_WIDTH = WIDTH;
+	SCR_HEIGHT = height;
+	SCR_WIDTH = width;
 }
 
 screen::screen() : window(nullptr) {}
@@ -48,7 +48,7 @@ void screen::setParameters() {
 
 void screen::update() {
 
-	glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
+	glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 

@@ -38,24 +38,30 @@ launch this application and see the visualisation of the gaussian white noise. t
 	find_package(OpenGL REQUIRED)
 
 	include_directories(
-		# library headers
-		"./include/"
-    	)
+	  # library headers
+	  "./include/"
+	)
+
+	set (CMAKE_CXX_STANDARD 11)
 
 	set( GLFW_SHARED_LIB
-    		"${PROJECT_SOURCE_DIR}/libs/glfw/lib-x86_64/libglfw.3.dylib"
+	  "${PROJECT_SOURCE_DIR}/libs/glfw/lib-x86_64/libglfw.3.dylib"
 	)
 
 	set ( ALL_LIBS 
-    		${OpenGL}
-    		${GLFW_SHARED_LIB}
-    		"-ldl"
+	  ${OpenGL}
+	  ${GLFW_SHARED_LIB}
+	  "-ldl"
 	)
 
 	add_executable(gaussN 
-    		"source/glad.c"
-    		"source/main.cpp"
-    	)
+	  "source/glad.c"
+	  "source/main.cpp"
+	  "source/io/screen.cpp"
+	  "source/io/camera.cpp"
+	  "source/io/keyboard.cpp"
+	  "source/io/mouse.cpp"
+	)
 
 	target_link_libraries(gaussN ${ALL_LIBS})
 	install(TARGETS gaussN DESTINATION "${PROJECT_SOURCE_DIR}/bin/")
