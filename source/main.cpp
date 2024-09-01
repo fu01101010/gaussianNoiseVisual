@@ -26,11 +26,19 @@ std::string loadShaderSrc(const char* filename);
 // settings
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
-screen Screen;
 
 double dt = 0.0f;
 double lastFrame = 0.0f;
 double currentTime = 0.0f;
+
+float x, y, z;
+double dx, dy;
+double scrollDX, scrollDY;
+
+glm::mat4 transformationMatrix = glm::mat4(1.0f);
+
+screen Screen;
+camera camera::defaultCamera(glm::vec3(0.0f, 0.0f, 3.0f));
 
 int main()
 {
@@ -140,6 +148,9 @@ int main()
 
 	// render loop
 
+	glm::mat4 view = glm::mat4(1.0f);
+	glm::mat4 projection = glm::mat4(1.0f);
+
 	while (!Screen.shouldClose()) {
 
 		currentTime = glfwGetTime();
@@ -148,6 +159,15 @@ int main()
 
 		// input
 		Screen.update();
+		
+		processInput(dt);
+
+		// create transformations for the screen
+		view = camera::defaultCamera.getViewMatrix();
+		projection = glm::perspective(glm::radians(camera::defaultCamera.getZoom()), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+
+		
+		
 
 		// use shader program
 		glUseProgram(shaderProgram);
@@ -155,8 +175,6 @@ int main()
 
 		// draw triangle
 		glDrawArrays(GL_TRIANGLES, 0, 3);
-
-		processInput(dt);
 
 		// glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
 		
