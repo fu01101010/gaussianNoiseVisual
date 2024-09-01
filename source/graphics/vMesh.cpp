@@ -20,13 +20,11 @@ std::vector<vertex> vertex::genList(float* vertices, int nVertices) {
 			vertices[i * stride + 5]
 		);
 		
-		/*
 		retval[i].aColor = glm::vec3(
 			vertices[i * stride + 6],
 			vertices[i * stride + 7],
 			vertices[i * stride + 8]
 		);
-		*/
 	}
 
 	return retval;
@@ -80,8 +78,8 @@ void vMesh::setUp() {
 	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(vertex), (void*)offsetof(vertex, normal));
 
 	//vertex.aColor
-	//glEnableVertexAttribArray(3);
-	//glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(vertex), (void*)offsetof(vertex, aColor));
+	glEnableVertexAttribArray(2);
+	glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(vertex), (void*)offsetof(vertex, aColor));
 
 	glBindVertexArray(0);
 }

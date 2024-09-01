@@ -14,7 +14,7 @@ struct vertex {
 
 	glm::vec3 position;
 	glm::vec3 normal;	
-	//glm::vec3 aColor;
+	glm::vec3 aColor;
 
 	static std::vector<struct vertex> genList(float* vertices, int nVertices);
 };

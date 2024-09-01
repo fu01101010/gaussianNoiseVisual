@@ -85,7 +85,7 @@ int main()
 		 0.0f,  0.5f, 0.0f
 	};
 
-	shader Shader("../shaders/vertex_core.glsl", "../shaders/fragment_core.glsl");
+	shader Shader("/Users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/shaders/2Dcore.vs", "/Users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/shaders/2Dcore.fs");
 	
 	vCube VCube = vCube(material::black_plastic, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.1f));
 	VCube.init();
