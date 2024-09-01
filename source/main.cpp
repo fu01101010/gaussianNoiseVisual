@@ -12,6 +12,9 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include "../source/graphics/shader.h"
+#include "../source/graphics/light.h"
+
 #include "../source/io/mouse.h"
 #include "../source/io/keyboard.h"
 #include "../source/io/screen.h"
@@ -78,73 +81,7 @@ int main()
 		 0.0f,  0.5f, 0.0f
 	};
 
-	unsigned int VBO, VAO;
-	glGenBuffers(1, &VBO);
-	glGenVertexArrays(1, &VAO);
-
-	// process vertex data via GPU
-	
-	unsigned int vertexShader;
-	vertexShader = glCreateShader(GL_VERTEX_SHADER);
-	std::string vertexShaderSrc = loadShaderSrc("../source/shaders/vertex_core.glsl");
-
-	const char* vertexShaderSrcCSTR = vertexShaderSrc.c_str();
-
-	glShaderSource(vertexShader, 1, &vertexShaderSrcCSTR, nullptr);
-	glCompileShader(vertexShader);
-
-	glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
-	if (!success) {
-
-		glGetShaderInfoLog(vertexShader, 512, nullptr, infoLog);
-		std::cout << "ERR::SHADER::VERTEX::COMPILATION_FAILED" << std::endl << infoLog << std::endl;
-	}
-
-	// process fragment data
-	
-	unsigned int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-	std::string fragmentShaderSrc = loadShaderSrc("../source/shaders/fragment_core.glsl");
-
-	const char* fragmentShaderSrcCSTR = fragmentShaderSrc.c_str();
-
-	glShaderSource(fragmentShader, 1, &fragmentShaderSrcCSTR, nullptr);
-	glCompileShader(fragmentShader);
-
-	glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
-	if (!success) {
-
-		glGetShaderInfoLog(fragmentShader, 512, nullptr, infoLog);
-		std::cout << "ERR::SHADER::FRAGMENT::COMPILATION_FAILED" << std::endl << infoLog << std::endl;
-	}
-	
-	// shader programs
-
-	unsigned int shaderProgram = glCreateProgram();
-
-	glAttachShader(shaderProgram, vertexShader);
-	glAttachShader(shaderProgram, fragmentShader);
-	glLinkProgram(shaderProgram);
-
-	glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
-	if (!success) {
-		glGetProgramInfoLog(shaderProgram, 512, nullptr, infoLog);
-		std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED" << std::endl << infoLog << std::endl;
-	}
-
-	glDeleteShader(vertexShader);
-	glDeleteShader(fragmentShader);
-
-	// interpret vertex data via GPU
-
-	glBindVertexArray(VAO);
-
-	// put vertices in buffer
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-	// set vertex attribute pointers
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-	glEnableVertexAttribArray(0);
+	shader Shader("../source/shaders/2Dcore.vs", "../source/shaders/2Dcore.fs");
 
 	// render loop
 
@@ -166,15 +103,14 @@ int main()
 		view = camera::defaultCamera.getViewMatrix();
 		projection = glm::perspective(glm::radians(camera::defaultCamera.getZoom()), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
 
-		
-		
-
-		// use shader program
-		glUseProgram(shaderProgram);
-		glBindVertexArray(VAO);
+		Shader.activate();
+		Shader.set3flt("viewPos", camera::defaultCamera.cameraPosition);
 
 		// draw triangle
 		glDrawArrays(GL_TRIANGLES, 0, 3);
+
+		Shader.setmat4("view", view);
+		Shader.setmat4("projection", projection);
 
 		// glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
 		

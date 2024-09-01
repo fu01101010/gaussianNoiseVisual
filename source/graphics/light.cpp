@@ -15,7 +15,7 @@ void pointLight::render(shader Shader, int IDx) {
 	Shader.set3flt(name + ".specular", specular);
 }
 
-void DIRECTLIGHT::RENDER(SHADER Shader) {
+void directLight::render(shader Shader) {
 
 	std::string name = "DirectLight";
 
@@ -27,7 +27,7 @@ void DIRECTLIGHT::RENDER(SHADER Shader) {
 }
 
 
-void SPOTLIGHT::RENDER(SHADER Shader, int IDx) {
+void spotLight::render(shader Shader, int IDx) {
 
 	std::string name = "SpotLights[" + std::to_string(IDx) + "]";
 	//std::string name = "SpotLight";

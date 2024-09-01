@@ -198,6 +198,54 @@ source/glad.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/glad.c.s
 .PHONY : source/glad.c.s
 
+source/graphics/light.o: source/graphics/light.cpp.o
+.PHONY : source/graphics/light.o
+
+# target to build an object file
+source/graphics/light.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/graphics/light.cpp.o
+.PHONY : source/graphics/light.cpp.o
+
+source/graphics/light.i: source/graphics/light.cpp.i
+.PHONY : source/graphics/light.i
+
+# target to preprocess a source file
+source/graphics/light.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/graphics/light.cpp.i
+.PHONY : source/graphics/light.cpp.i
+
+source/graphics/light.s: source/graphics/light.cpp.s
+.PHONY : source/graphics/light.s
+
+# target to generate assembly for a file
+source/graphics/light.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/graphics/light.cpp.s
+.PHONY : source/graphics/light.cpp.s
+
+source/graphics/shader.o: source/graphics/shader.cpp.o
+.PHONY : source/graphics/shader.o
+
+# target to build an object file
+source/graphics/shader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/graphics/shader.cpp.o
+.PHONY : source/graphics/shader.cpp.o
+
+source/graphics/shader.i: source/graphics/shader.cpp.i
+.PHONY : source/graphics/shader.i
+
+# target to preprocess a source file
+source/graphics/shader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/graphics/shader.cpp.i
+.PHONY : source/graphics/shader.cpp.i
+
+source/graphics/shader.s: source/graphics/shader.cpp.s
+.PHONY : source/graphics/shader.s
+
+# target to generate assembly for a file
+source/graphics/shader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/graphics/shader.cpp.s
+.PHONY : source/graphics/shader.cpp.s
+
 source/io/camera.o: source/io/camera.cpp.o
 .PHONY : source/io/camera.o
 
@@ -334,6 +382,12 @@ help:
 	@echo "... source/glad.o"
 	@echo "... source/glad.i"
 	@echo "... source/glad.s"
+	@echo "... source/graphics/light.o"
+	@echo "... source/graphics/light.i"
+	@echo "... source/graphics/light.s"
+	@echo "... source/graphics/shader.o"
+	@echo "... source/graphics/shader.i"
+	@echo "... source/graphics/shader.s"
 	@echo "... source/io/camera.o"
 	@echo "... source/io/camera.i"
 	@echo "... source/io/camera.s"

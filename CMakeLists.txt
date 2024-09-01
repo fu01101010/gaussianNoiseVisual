@@ -23,6 +23,8 @@ set ( ALL_LIBS
 add_executable(gaussN 
   "source/glad.c"
   "source/main.cpp"
+  "source/graphics/shader.cpp"
+  "source/graphics/light.cpp"
   "source/io/screen.cpp"
   "source/io/camera.cpp"
   "source/io/keyboard.cpp"

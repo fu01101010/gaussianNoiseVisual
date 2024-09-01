@@ -1,6 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/gaussN.dir/source/glad.c.o"
   "CMakeFiles/gaussN.dir/source/glad.c.o.d"
+  "CMakeFiles/gaussN.dir/source/graphics/light.cpp.o"
+  "CMakeFiles/gaussN.dir/source/graphics/light.cpp.o.d"
+  "CMakeFiles/gaussN.dir/source/graphics/shader.cpp.o"
+  "CMakeFiles/gaussN.dir/source/graphics/shader.cpp.o.d"
   "CMakeFiles/gaussN.dir/source/io/camera.cpp.o"
   "CMakeFiles/gaussN.dir/source/io/camera.cpp.o.d"
   "CMakeFiles/gaussN.dir/source/io/keyboard.cpp.o"
