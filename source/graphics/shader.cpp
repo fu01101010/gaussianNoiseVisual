@@ -69,8 +69,8 @@ GLuint shader::compileShader(const char* filename, GLenum type) {
 	GLuint retval = glCreateShader(type);
 
 	std::string shaderSrc = loadShaderSrc(filename);
-	const GLchar* shader = shaderSrc.c_str();
-	glShaderSource(retval, 1, &shader, nullptr);
+	const GLchar* Shader = shaderSrc.c_str();
+	glShaderSource(retval, 1, &Shader, nullptr);
 
 	// compile
 	glCompileShader(retval);

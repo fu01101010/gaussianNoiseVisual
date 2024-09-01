@@ -222,6 +222,30 @@ source/graphics/light.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/graphics/light.cpp.s
 .PHONY : source/graphics/light.cpp.s
 
+source/graphics/material.o: source/graphics/material.cpp.o
+.PHONY : source/graphics/material.o
+
+# target to build an object file
+source/graphics/material.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/graphics/material.cpp.o
+.PHONY : source/graphics/material.cpp.o
+
+source/graphics/material.i: source/graphics/material.cpp.i
+.PHONY : source/graphics/material.i
+
+# target to preprocess a source file
+source/graphics/material.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/graphics/material.cpp.i
+.PHONY : source/graphics/material.cpp.i
+
+source/graphics/material.s: source/graphics/material.cpp.s
+.PHONY : source/graphics/material.s
+
+# target to generate assembly for a file
+source/graphics/material.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/graphics/material.cpp.s
+.PHONY : source/graphics/material.cpp.s
+
 source/graphics/shader.o: source/graphics/shader.cpp.o
 .PHONY : source/graphics/shader.o
 
@@ -245,6 +269,54 @@ source/graphics/shader.s: source/graphics/shader.cpp.s
 source/graphics/shader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/graphics/shader.cpp.s
 .PHONY : source/graphics/shader.cpp.s
+
+source/graphics/vMesh.o: source/graphics/vMesh.cpp.o
+.PHONY : source/graphics/vMesh.o
+
+# target to build an object file
+source/graphics/vMesh.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/graphics/vMesh.cpp.o
+.PHONY : source/graphics/vMesh.cpp.o
+
+source/graphics/vMesh.i: source/graphics/vMesh.cpp.i
+.PHONY : source/graphics/vMesh.i
+
+# target to preprocess a source file
+source/graphics/vMesh.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/graphics/vMesh.cpp.i
+.PHONY : source/graphics/vMesh.cpp.i
+
+source/graphics/vMesh.s: source/graphics/vMesh.cpp.s
+.PHONY : source/graphics/vMesh.s
+
+# target to generate assembly for a file
+source/graphics/vMesh.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/graphics/vMesh.cpp.s
+.PHONY : source/graphics/vMesh.cpp.s
+
+source/graphics/vModel.o: source/graphics/vModel.cpp.o
+.PHONY : source/graphics/vModel.o
+
+# target to build an object file
+source/graphics/vModel.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/graphics/vModel.cpp.o
+.PHONY : source/graphics/vModel.cpp.o
+
+source/graphics/vModel.i: source/graphics/vModel.cpp.i
+.PHONY : source/graphics/vModel.i
+
+# target to preprocess a source file
+source/graphics/vModel.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/graphics/vModel.cpp.i
+.PHONY : source/graphics/vModel.cpp.i
+
+source/graphics/vModel.s: source/graphics/vModel.cpp.s
+.PHONY : source/graphics/vModel.s
+
+# target to generate assembly for a file
+source/graphics/vModel.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/graphics/vModel.cpp.s
+.PHONY : source/graphics/vModel.cpp.s
 
 source/io/camera.o: source/io/camera.cpp.o
 .PHONY : source/io/camera.o
@@ -385,9 +457,18 @@ help:
 	@echo "... source/graphics/light.o"
 	@echo "... source/graphics/light.i"
 	@echo "... source/graphics/light.s"
+	@echo "... source/graphics/material.o"
+	@echo "... source/graphics/material.i"
+	@echo "... source/graphics/material.s"
 	@echo "... source/graphics/shader.o"
 	@echo "... source/graphics/shader.i"
 	@echo "... source/graphics/shader.s"
+	@echo "... source/graphics/vMesh.o"
+	@echo "... source/graphics/vMesh.i"
+	@echo "... source/graphics/vMesh.s"
+	@echo "... source/graphics/vModel.o"
+	@echo "... source/graphics/vModel.i"
+	@echo "... source/graphics/vModel.s"
 	@echo "... source/io/camera.o"
 	@echo "... source/io/camera.i"
 	@echo "... source/io/camera.s"

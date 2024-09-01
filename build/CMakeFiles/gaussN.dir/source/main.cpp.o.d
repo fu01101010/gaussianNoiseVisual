@@ -487,6 +487,15 @@ CMakeFiles/gaussN.dir/source/main.cpp.o: \
   /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/./include/glm/gtc/type_ptr.inl \
   /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/../source/graphics/shader.h \
   /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/../source/graphics/light.h \
+  /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/../source/graphics/material.h \
+  /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/../source/graphics/vMesh.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/include/c++/v1/vector \
+  /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/../source/graphics/vModel.h \
+  /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/../source/graphics/models/vCube.hpp \
+  /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/../source/graphics/models/../vModel.h \
+  /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/../source/graphics/models/../material.h \
+  /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/../source/graphics/models/vLightSource.hpp \
+  /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/../source/graphics/models/../light.h \
   /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/../source/io/mouse.h \
   /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/../source/io/keyboard.h \
   /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/../source/io/screen.h \

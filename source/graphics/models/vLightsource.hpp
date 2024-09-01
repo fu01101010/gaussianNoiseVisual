@@ -2,7 +2,7 @@
 #define VLIGHTSOURCE_HPP
 
 #include "vCube.hpp"
-#include "../Light.h"
+#include "../light.h"
 
 class vLightsource : public vCube {
 

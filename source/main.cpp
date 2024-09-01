@@ -14,6 +14,11 @@
 
 #include "../source/graphics/shader.h"
 #include "../source/graphics/light.h"
+#include "../source/graphics/material.h"
+#include "../source/graphics/vMesh.h"
+#include "../source/graphics/vModel.h"
+#include "../source/graphics/models/vCube.hpp"
+#include "../source/graphics/models/vLightSource.hpp"
 
 #include "../source/io/mouse.h"
 #include "../source/io/keyboard.h"
@@ -21,8 +26,7 @@
 #include "../source/io/camera.h"
 
 
-void framebufferSizeCallback(GLFWwindow* window, int width, int height);
-void processInput(double _dt);
+void processInput(double dt);
 
 std::string loadShaderSrc(const char* filename);
 
@@ -81,7 +85,10 @@ int main()
 		 0.0f,  0.5f, 0.0f
 	};
 
-	shader Shader("../source/shaders/2Dcore.vs", "../source/shaders/2Dcore.fs");
+	shader Shader("../shaders/vertex_core.glsl", "../shaders/fragment_core.glsl");
+	
+	vCube VCube = vCube(material::black_plastic, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.1f));
+	VCube.init();
 
 	// render loop
 
@@ -112,7 +119,9 @@ int main()
 		Shader.setmat4("view", view);
 		Shader.setmat4("projection", projection);
 
-		// glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
+		VCube.render(Shader);
+
+		// glfw: swap buffers and poll IO events (KEYs pressed/released, mouse moved etc.)
 		
 		Screen.newFrame();
 	}
@@ -123,41 +132,56 @@ int main()
 	return 0;
 }
 
-// process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly
+// process all input: query GLFW whether relevant KEYs are pressed/released this frame and react accordingly
 
-void processInput(double _dt) {
+void processInput(double dt) {
 
 	if(keyboard::key(GLFW_KEY_ESCAPE))
 		Screen.setShouldClose(true);
-}
 
-// glfw: whenever the window size changed (by OS or user resize) this callback function executes
+	if (keyboard::key(GLFW_KEY_E)) {
 
-void framebufferSizeCallback(GLFWwindow* window, int width, int height) {
-	// make sure the viewport matches the new window dimensions; note that width and 
-	// height will be significantly larger than specified on retina displays.
-	glViewport(0, 0, width, height);
-}
-
-std::string loadShaderSrc(const char* filename) {
-
-	std::ifstream fromfile;
-	std::stringstream buffer;
-
-	std::string retval = "";
-
-	fromfile.open(filename);
-
-	if (fromfile.is_open()) {
-		buffer << fromfile.rdbuf();
-
-		retval = buffer.str();
-	}
-	else {
-		std::cout << "ERROR::SHADER::COULD_NOT_OPEN_FILE: " << filename << std::endl;
+		camera::defaultCamera.updateCameraPosition(cameraDirection::FORWARD, dt);
 	}
 
-	fromfile.close();
+	if (keyboard::key(GLFW_KEY_S)) {
 
-	return retval;
+		camera::defaultCamera.updateCameraPosition(cameraDirection::LEFT, dt);
+	}
+
+	if (keyboard::key(GLFW_KEY_D)) {
+
+		camera::defaultCamera.updateCameraPosition(cameraDirection::BACKWARD, dt);
+	}
+
+	if (keyboard::key(GLFW_KEY_F)) {
+
+		camera::defaultCamera.updateCameraPosition(cameraDirection::RIGHT, dt);
+	}
+
+	if (keyboard::key(GLFW_KEY_SPACE)) {
+
+		camera::defaultCamera.updateCameraPosition(cameraDirection::UP, dt);
+	}
+
+	if (keyboard::key(GLFW_KEY_LEFT_SHIFT)) {
+
+		camera::defaultCamera.updateCameraPosition(cameraDirection::DOWN, dt);
+	}
+
+	dx = mouse::getDX();
+	dy = mouse::getDY();
+
+	if (dx != 0 || dy != 0) {
+
+		camera::defaultCamera.updateCameraDirection(dx, dy);
+	}
+
+	scrollDY = mouse::getScrollDY();
+
+	if (scrollDY != 0) {
+
+		camera::defaultCamera.updateCameraZoom(scrollDY);
+	}
+
 }
