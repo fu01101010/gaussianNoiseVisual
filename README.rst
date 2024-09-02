@@ -56,11 +56,18 @@ launch this application and see the visualisation of the gaussian white noise. t
 
 	add_executable(gaussN 
 	  "source/glad.c"
-	  "source/main.cpp"
+	  "source/graphics/shader.cpp"
+	  "source/graphics/light.cpp"
+	  "source/graphics/material.cpp"
+	  "source/graphics/vMesh.cpp"
+	  "source/graphics/vModel.cpp"
+	  "source/graphics/models/vCube.hpp"
+	  "source/graphics/models/vLightSource.hpp"
 	  "source/io/screen.cpp"
 	  "source/io/camera.cpp"
 	  "source/io/keyboard.cpp"
 	  "source/io/mouse.cpp"
+	  "source/main.cpp"
 	)
 
 	target_link_libraries(gaussN ${ALL_LIBS})
