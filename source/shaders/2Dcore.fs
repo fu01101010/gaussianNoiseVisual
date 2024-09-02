@@ -22,7 +22,7 @@ out vec4 fragmentColor;
 
 in vec3 vsOutFragPos;
 in vec3 vsOutNormal;
-in vec2 vsOutColor;
+in vec3 vsOutColor;
 
 uniform material Material;
 uniform light Light;
@@ -31,7 +31,7 @@ uniform vec3 viewPos;
 
 void main() {
 
-	fragmentColor = vec4(0.3f, 0.3f, 0.3f, 1.0f);
+	fragmentColor = vec4(vsOutColor, 1.0f);
 
 	//AMBIENT light
 /*

@@ -125,6 +125,8 @@ int main()
 		
 		Screen.newFrame();
 	}
+	
+	VCube.cleanUp();
 
 	// glfw: terminate, clearing all previously allocated GLFW resources.
 

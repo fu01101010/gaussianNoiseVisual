@@ -17,11 +17,6 @@ void main() {
 	vsOutNormal	= mat3(transpose(inverse(model))) * aNormal;
 
 	gl_Position = projection * view * vec4(vsOutFragPos, 1.0);
-
-	if (aPos.x < 0.0f && aPos.y < 0.0f && aPos.z < 0.0f) {
-		vsOutColor = vec3(1.0f);
-	}
-	else {
-		vsOutColor = vec3(vec2(0.0f), 1.0f);
-	}
+	
+	vsOutColor = aColor;
 }
