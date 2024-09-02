@@ -44,11 +44,11 @@ launch this application and see the visualisation of the gaussian white noise. t
 
 	set (CMAKE_CXX_STANDARD 11)
 
-	set( GLFW_SHARED_LIB
+	set (GLFW_SHARED_LIB
 	  "${PROJECT_SOURCE_DIR}/libs/glfw/lib-x86_64/libglfw.3.dylib"
 	)
 
-	set ( ALL_LIBS 
+	set (ALL_LIBS 
 	  ${OpenGL}
 	  ${GLFW_SHARED_LIB}
 	  "-ldl"
