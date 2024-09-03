@@ -55,7 +55,7 @@ struct spotLight {
 	vec3 diffuse;
 	vec3 specular;
 };
-uniform SPOTLIGHT SpotLight;
+uniform spotLight SpotLight;
 
 out vec4 fragmentColor;
 
@@ -106,7 +106,7 @@ vec3 calculatePointLight(int IDx, vec3 normal, vec3 viewDir)  {
 	//specular PointLight
 	vec3 reflectDir = reflect(-pointLightDir, normal);
 
-	float specComponent = pow(max(dot(ViewDir, reflectDir), 0.0), Material.reflectivity * 128);
+	float specComponent = pow(max(dot(viewDir, reflectDir), 0.0), Material.reflectivity * 128);
 
 	vec3 specular = PointLights[IDx].specular * (specComponent * Material.specular); //if specular -> vec3
 

@@ -5,5 +5,3 @@ mkdir build
 cd build
 cmake ..
 make install
-//cd ../bin
-//./gaussN

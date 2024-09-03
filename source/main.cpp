@@ -15,6 +15,7 @@
 #include "../source/graphics/shader.h"
 #include "../source/graphics/light.h"
 #include "../source/graphics/material.h"
+
 #include "../source/graphics/vMesh.h"
 #include "../source/graphics/vModel.h"
 #include "../source/graphics/models/vCube.hpp"
@@ -86,9 +87,16 @@ int main()
 	};
 
 	shader Shader("/Users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/shaders/core.vs", "/Users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/shaders/core.fs");
-	
+	shader lightsourceShader("/Users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/shaders/core.vs", "/Users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/shaders/lightsource.fs");
+
 	vCube VCube = vCube(material::black_plastic, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.1f));
 	VCube.init();
+
+	spotLight SpotLight = { 
+		camera::defaultCamera.cameraPosition, camera::defaultCamera.cameraFront, 
+		glm::cos(glm::radians(12.1f)), glm::cos(glm::radians(20.1f)), 
+		1.0f, 0.07f, 0.032f, glm::vec3(0.0f), glm::vec3(1.0f), glm::vec3(1.0f)
+	};
 
 	// render loop
 
@@ -112,9 +120,14 @@ int main()
 
 		Shader.activate();
 		Shader.set3flt("viewPos", camera::defaultCamera.cameraPosition);
+		
+		SpotLight.position = camera::defaultCamera.cameraPosition;
+		SpotLight.direction = camera::defaultCamera.cameraFront;
+		SpotLight.render(Shader);
+		
 
 		// draw triangle
-		glDrawArrays(GL_TRIANGLES, 0, 3);
+		//glDrawArrays(GL_TRIANGLES, 0, 3);
 
 		Shader.setmat4("view", view);
 		Shader.setmat4("projection", projection);

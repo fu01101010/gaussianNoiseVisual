@@ -49,7 +49,7 @@ struct spotLight {
 	glm::vec3 diffuse;
 	glm::vec3 specular;
 
-	void render(shader Shader, int IDx);
+	void render(shader Shader);
 };
 
 #endif
