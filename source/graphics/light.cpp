@@ -27,10 +27,9 @@ void directLight::render(shader Shader) {
 }
 
 
-void spotLight::render(shader Shader, int IDx) {
+void spotLight::render(shader Shader) {
 
-	std::string name = "SpotLights[" + std::to_string(IDx) + "]";
-	//std::string name = "SpotLight";
+	std::string name = "SpotLight";
 
 	Shader.set3flt(name + ".position", position);
 	Shader.set3flt(name + ".direction", direction);
