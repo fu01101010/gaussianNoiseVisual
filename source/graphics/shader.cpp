@@ -21,10 +21,10 @@ void shader::generate(const char* vertexShaderPath, const char* fragmentShaderPa
 	glLinkProgram(shaderID);
 
 	// catch errors
-	glGetShaderiv(shaderID, GL_COMPILE_STATUS, &success);
+	glGetProgramiv(shaderID, GL_LINK_STATUS, &success);
 	if (!success) {
 
-		glGetShaderInfoLog(shaderID, 512, nullptr, infoLog);
+		glGetProgramInfoLog(shaderID, 512, nullptr, infoLog);
 		std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED" << std::endl << infoLog << std::endl;
 	}
 
@@ -50,8 +50,7 @@ std::string shader::loadShaderSrc(const char* filename) {
 		buffer << fromfile.rdbuf();
 
 		retval = buffer.str();
-	}
-	else {
+	} else {
 		std::cout << "ERROR::SHADER::COULD_NOT_OPEN_FILE: " << filename << std::endl;
 	}
 
@@ -80,9 +79,9 @@ GLuint shader::compileShader(const char* filename, GLenum type) {
 	if (!success) {
 
 		glGetShaderInfoLog(retval, 512, nullptr, infoLog);
-		std::cout << "ERR::SHADER::COMPILATION_FAILED@" << std::endl << filename << infoLog << std::endl;
+		std::cout << "ERROR::SHADER::COMPILATION_FAILED@" << std::endl << filename << infoLog << std::endl;
 	}
-
+	
 	return retval;
 }
 

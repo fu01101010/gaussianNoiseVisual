@@ -61,7 +61,7 @@ out vec4 fragmentColor;
 
 in vec3 vsOutFragPos;
 in vec3 vsOutNormal;
-in vec2 vsOutColor;
+in vec3 vsOutColor;
 
 uniform material Material;
 

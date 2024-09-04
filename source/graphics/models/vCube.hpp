@@ -23,7 +23,7 @@ public:
 
 		float vertices[] = {
 			//position		normal			aColor
-			-0.5f, -0.5f, -0.5f,	 0.0f,  0.0f, -1.0f,	1.0f, 1.0f, 1.0f,	 
+			-0.5f, -0.5f, -0.5f,	 0.0f,  0.0f, -1.0f,	1.0f, 1.0f, 1.0f,
 			 0.5f, -0.5f, -0.5f,	 0.0f,  0.0f, -1.0f,	1.0f, 1.0f, 1.0f,
 			 0.5f,  0.5f, -0.5f,	 0.0f,  0.0f, -1.0f,	1.0f, 1.0f, 1.0f,
 			 0.5f,  0.5f, -0.5f,	 0.0f,  0.0f, -1.0f,	1.0f, 1.0f, 1.0f,
@@ -39,7 +39,7 @@ public:
 
 			-0.5f,  0.5f,  0.5f,    -1.0f,  0.0f,  0.0f,	1.0f, 1.0f, 1.0f,
 			-0.5f,  0.5f, -0.5f,    -1.0f,  0.0f,  0.0f,	1.0f, 1.0f, 1.0f,
-			-0.5f, -0.5f, -0.5f,    -1.0f,  0.0f,  0.0f,	1.0f, 1.0f, 1.0f,	
+			-0.5f, -0.5f, -0.5f,    -1.0f,  0.0f,  0.0f,	1.0f, 1.0f, 1.0f,
 			-0.5f, -0.5f, -0.5f,    -1.0f,  0.0f,  0.0f,	1.0f, 1.0f, 1.0f,
 			-0.5f, -0.5f,  0.5f,    -1.0f,  0.0f,  0.0f,	1.0f, 1.0f, 1.0f,
 			-0.5f,  0.5f,  0.5f,    -1.0f,  0.0f,  0.0f,	1.0f, 1.0f, 1.0f,
@@ -86,8 +86,8 @@ public:
 
 		Shader.setmat4("model", model);
 		Shader.set3flt("Material.ambient", Material.ambient);
-		//Shader.set3flt("Material.diffuse", Material.diffuse);
-		//Shader.set3flt("Material.specular", Material.specular);
+		Shader.set3flt("Material.diffuse", Material.diffuse);
+		Shader.set3flt("Material.specular", Material.specular);
 		Shader.set_flt("Material.reflectivity", Material.reflectivity);
 
 		vModel::render(Shader);
