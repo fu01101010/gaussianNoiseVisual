@@ -4,6 +4,13 @@
 #include "../vModel.h"
 #include "../material.h"
 
+struct item {
+
+	float coords[9] = {};
+	float normal[3] = {};
+	float aColor[3] = {};
+};
+
 class terrain : public vModel {
 
 public:
@@ -19,23 +26,29 @@ public:
 
 	void init() {
 
-		unsigned int nVertices = 3;
+		unsigned int nItems = 6;
+		std::vector<item> terrainData;
 
 		float vertices[] = {
-			//position		normal			aColor
-			-0.5f, -0.5f, -0.5f,	 0.0f,  1.0f, 0.0f,	1.0f, 1.0f, 1.0f,
-			-0.5f, -0.5f,  0.5f,	 0.0f,  1.0f, 0.0f,	1.0f, 1.0f, 1.0f,
-			 0.5f, -0.5f,  0.5f,	 0.0f,  1.0f, 0.0f,	1.0f, 1.0f, 1.0f
+			//position		 normal			aColor
+			-0.5f, -0.5f, -0.5f,	 0.0f,  0.0f, 1.0f,	0.0f, 0.0f, 0.0f,
+			-0.5f,  0.5f, -0.5f,	 0.0f,  0.0f, 1.0f,	0.0f, 0.0f, 0.0f,
+			 0.5f,  0.5f, -0.5f,	 0.0f,  0.0f, 1.0f,	0.0f, 0.0f, 0.0f,
+
+			-0.5f, -0.5f, -0.2f,	 0.0f,  0.0f, 1.0f,	0.0f, 0.0f, 0.0f,
+			 0.5f,  0.5f, -0.2f,	 0.0f,  0.0f, 1.0f,	0.0f, 0.0f, 0.0f,
+			 0.5f, -0.5f, -0.2f,	 0.0f,  0.0f, 1.0f,	0.0f, 0.0f, 0.0f
+
 		};
 
-		std::vector<unsigned int> indices(nVertices);
+		std::vector<unsigned int> indices(nItems);
 
-		for (int i = 0; i < nVertices; ++i) {
+		for (int i = 0; i < nItems; ++i) {
 
 			indices[i] = i;
 		}
 
-		meshes.push_back(vMesh(vertex::genList(vertices, nVertices), indices));
+		meshes.push_back(vMesh(vertex::genList(vertices, nItems), indices));
 	}
 
 	void render(shader Shader) {
