@@ -13,8 +13,8 @@ public:
 
 	material Material;
 
-	vCube() {}
-	vCube(material Material, glm::vec3 position, glm::vec3 size) 
+	terrain() {}
+	terrain(material Material, glm::vec3 position, glm::vec3 size) 
 		: Material(Material), position(position), size(size) {}
 
 	void init() {
@@ -23,9 +23,9 @@ public:
 
 		float vertices[] = {
 			//position		normal			aColor
-			-0.5f, -0.5f, -0.5f,	 0.0f,  0.0f, -1.0f,	1.0f, 1.0f, 1.0f,
-			-0.5f, -0.5f,  0.5f,	 0.0f,  0.0f, -1.0f,	1.0f, 1.0f, 1.0f,
-			 0.5f, -0.5f,  0.5f,	 0.0f,  0.0f, -1.0f,	1.0f, 1.0f, 1.0f
+			-0.5f, -0.5f, -0.5f,	 0.0f,  1.0f, 0.0f,	1.0f, 1.0f, 1.0f,
+			-0.5f, -0.5f,  0.5f,	 0.0f,  1.0f, 0.0f,	1.0f, 1.0f, 1.0f,
+			 0.5f, -0.5f,  0.5f,	 0.0f,  1.0f, 0.0f,	1.0f, 1.0f, 1.0f
 		};
 
 		std::vector<unsigned int> indices(nVertices);

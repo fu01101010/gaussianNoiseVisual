@@ -63,6 +63,7 @@ launch this application and see the visualisation of the gaussian white noise. t
 	  "source/graphics/vModel.cpp"
 	  "source/graphics/models/vCube.hpp"
 	  "source/graphics/models/vLightSource.hpp"
+	  "source/graphics/models/vTerrainGen.hpp"
 	  "source/io/screen.cpp"
 	  "source/io/camera.cpp"
 	  "source/io/keyboard.cpp"

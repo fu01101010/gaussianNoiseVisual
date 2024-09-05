@@ -20,6 +20,7 @@
 #include "../source/graphics/vModel.h"
 #include "../source/graphics/models/vCube.hpp"
 #include "../source/graphics/models/vLightSource.hpp"
+#include "../source/graphics/models/vTerrainGen.hpp"
 
 #include "../source/io/mouse.h"
 #include "../source/io/keyboard.h"
@@ -80,17 +81,14 @@ int main()
 
 	Screen.setParameters();
 
-	float vertices[] = {
-		-0.5f, -0.5f, 0.0f,
-		 0.5f, -0.5f, 0.0f,
-		 0.0f,  0.5f, 0.0f
-	};
-
 	shader Shader("/Users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/shaders/core.vs", "/Users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/shaders/core.fs");
 	shader lightsourceShader("/Users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/shaders/core.vs", "/Users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/shaders/lightsource.fs");
 
-	vCube VCube = vCube(material::black_plastic, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.1f));
+	vCube VCube = vCube(material::black_rubber, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.1f));
 	VCube.init();
+
+	terrain VTerrain = terrain(material::white_rubber, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3 (1.1f));
+	VTerrain.init();
 
 	spotLight SpotLight = { 
 		camera::defaultCamera.cameraPosition, camera::defaultCamera.cameraFront, 
@@ -132,14 +130,16 @@ int main()
 		Shader.setmat4("view", view);
 		Shader.setmat4("projection", projection);
 
-		VCube.render(Shader);
+		//VCube.render(Shader);
+		VTerrain.render(Shader);
 
 		// glfw: swap buffers and poll IO events (KEYs pressed/released, mouse moved etc.)
 		
 		Screen.newFrame();
 	}
 	
-	VCube.cleanUp();
+	//VCube.cleanUp();
+	VTerrain.cleanUp();
 
 	// glfw: terminate, clearing all previously allocated GLFW resources.
 
