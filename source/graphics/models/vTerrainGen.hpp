@@ -64,7 +64,8 @@ public:
 		Shader.set3flt("Material.diffuse", Material.diffuse);
 		Shader.set3flt("Material.specular", Material.specular);
 		Shader.set_flt("Material.reflectivity", Material.reflectivity);
-
+		
+		//vModel::updateTerrain();
 		vModel::render(Shader);
 	}
 
