@@ -12,9 +12,9 @@ public:
 
 	int size;
 
-	int mean;
-	int sdev;
-	int disp;
+	float mean;
+	float sdev;
+	float disp;
 
 	std::vector<double> DataSet(size);
 

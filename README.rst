@@ -68,6 +68,7 @@ launch this application and see the visualisation of the gaussian white noise. t
 	  "source/io/camera.cpp"
 	  "source/io/keyboard.cpp"
 	  "source/io/mouse.cpp"
+	  "source/math/gauss.cpp"
 	  "source/main.cpp"
 	)
 

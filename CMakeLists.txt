@@ -34,6 +34,7 @@ add_executable(gaussN
   "source/io/camera.cpp"
   "source/io/keyboard.cpp"
   "source/io/mouse.cpp"
+  "Source/math/gauss.cpp"
   "source/main.cpp"
 )
 

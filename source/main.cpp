@@ -27,6 +27,8 @@
 #include "../source/io/screen.h"
 #include "../source/io/camera.h"
 
+#include "../source/math/gauss.cpp"
+
 
 void processInput(double dt);
 
@@ -100,6 +102,8 @@ int main()
 
 	glm::mat4 view = glm::mat4(1.0f);
 	glm::mat4 projection = glm::mat4(1.0f);
+	
+	
 
 	while (!Screen.shouldClose()) {
 
