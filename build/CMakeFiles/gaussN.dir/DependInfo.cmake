@@ -19,6 +19,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/io/mouse.cpp" "CMakeFiles/gaussN.dir/source/io/mouse.cpp.o" "gcc" "CMakeFiles/gaussN.dir/source/io/mouse.cpp.o.d"
   "/users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/io/screen.cpp" "CMakeFiles/gaussN.dir/source/io/screen.cpp.o" "gcc" "CMakeFiles/gaussN.dir/source/io/screen.cpp.o.d"
   "/users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/main.cpp" "CMakeFiles/gaussN.dir/source/main.cpp.o" "gcc" "CMakeFiles/gaussN.dir/source/main.cpp.o.d"
+  "/users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/math/gauss.cpp" "CMakeFiles/gaussN.dir/source/math/gauss.cpp.o" "gcc" "CMakeFiles/gaussN.dir/source/math/gauss.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

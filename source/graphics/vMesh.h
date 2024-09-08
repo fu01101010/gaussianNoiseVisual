@@ -30,7 +30,7 @@ public:
 	unsigned int VAO;
 
 	vMesh();
-	vMesh(std::vector<vertex> vertices, std::vector<unsigned int> indicess);
+	vMesh(std::vector<vertex> vertices, std::vector<unsigned int> indices);
 
 	void render(shader Shader);
 

@@ -16,13 +16,14 @@ public:
 	float sdev;
 	float disp;
 
-	std::vector<double> DataSet(size);
+	//std::vector<double> DataSet(size);
 
 	gaussDataSet();
+	gaussDataSet(int size, float mean,  float sdev,  float disp);
 
 	void init();
 
 	void print();
-}
+};
 
 #endif

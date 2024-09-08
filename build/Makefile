@@ -438,6 +438,30 @@ source/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/main.cpp.s
 .PHONY : source/main.cpp.s
 
+source/math/gauss.o: source/math/gauss.cpp.o
+.PHONY : source/math/gauss.o
+
+# target to build an object file
+source/math/gauss.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/math/gauss.cpp.o
+.PHONY : source/math/gauss.cpp.o
+
+source/math/gauss.i: source/math/gauss.cpp.i
+.PHONY : source/math/gauss.i
+
+# target to preprocess a source file
+source/math/gauss.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/math/gauss.cpp.i
+.PHONY : source/math/gauss.cpp.i
+
+source/math/gauss.s: source/math/gauss.cpp.s
+.PHONY : source/math/gauss.s
+
+# target to generate assembly for a file
+source/math/gauss.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gaussN.dir/build.make CMakeFiles/gaussN.dir/source/math/gauss.cpp.s
+.PHONY : source/math/gauss.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -484,6 +508,9 @@ help:
 	@echo "... source/main.o"
 	@echo "... source/main.i"
 	@echo "... source/main.s"
+	@echo "... source/math/gauss.o"
+	@echo "... source/math/gauss.i"
+	@echo "... source/math/gauss.s"
 .PHONY : help
 
 

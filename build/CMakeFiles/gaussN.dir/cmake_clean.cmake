@@ -21,6 +21,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/gaussN.dir/source/io/screen.cpp.o.d"
   "CMakeFiles/gaussN.dir/source/main.cpp.o"
   "CMakeFiles/gaussN.dir/source/main.cpp.o.d"
+  "CMakeFiles/gaussN.dir/source/math/gauss.cpp.o"
+  "CMakeFiles/gaussN.dir/source/math/gauss.cpp.o.d"
   "gaussN"
   "gaussN.pdb"
 )

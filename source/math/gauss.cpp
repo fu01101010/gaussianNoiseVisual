@@ -1,10 +1,16 @@
-#include <gauss.h>
+#include "gauss.h"
 #include <iostream>
 
-gaussDataSet::gaussDataSet(int size, float mean = 0.0f, float sdev = 2.0f, float disp = 1.0f) : size(size), mean(mean), sdev(sdev), disp(disp) {}
+gaussDataSet::gaussDataSet() {}
 
-void init() {
+gaussDataSet::gaussDataSet(int size, float mean = 0.0f, float sdev = 2.0f, float disp = 1.0f) : size(size), mean(mean), sdev(sdev), disp(disp) {
+
+	init();
+}
+
+void gaussDataSet::init() {
 	
+	/*
 	std::default_random_engine generator;
 	std::normal_distribution<double> distribution(mean, sdev);
 
@@ -12,12 +18,15 @@ void init() {
 
 		DataSet.at(i) = distribution(generator);
 	}
+	*/
 }
 
-void print() {
+void gaussDataSet::print() {
 	
+	/*
 	for (int i = 0; i < size(); ++i) {
 
-		std::cout << DataSet.at(i;)
+		std::cout << DataSet.at(i);
 	}
+	*/
 }
