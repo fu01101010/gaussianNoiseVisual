@@ -501,7 +501,6 @@ CMakeFiles/gaussN.dir/source/main.cpp.o: \
   /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/../source/io/keyboard.h \
   /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/../source/io/screen.h \
   /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/../source/io/camera.h \
-  /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/../source/math/gauss.cpp \
   /users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/../source/math/gauss.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/include/c++/v1/random \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/include/c++/v1/numeric

@@ -27,7 +27,7 @@
 #include "../source/io/screen.h"
 #include "../source/io/camera.h"
 
-#include "../source/math/gauss.cpp"
+#include "../source/math/gauss.h"
 
 
 void processInput(double dt);

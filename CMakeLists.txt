@@ -29,7 +29,7 @@ add_executable(gaussN
   "source/graphics/vModel.cpp"
   "source/graphics/models/vCube.hpp"
   "source/graphics/models/vLightSource.hpp"
-  "Source/graphics/models/vTerrainGen.hpp"
+  "source/graphics/models/vTerrainGen.hpp"
   "source/io/screen.cpp"
   "source/io/camera.cpp"
   "source/io/keyboard.cpp"
