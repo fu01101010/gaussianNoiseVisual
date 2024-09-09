@@ -20,10 +20,33 @@ void gaussDataSet::init() {
 
 void gaussDataSet::print() {
 	
+	int pCount = 0;
+	int nCount = 0;
+
+	double meanD = 0.0;
 	
 	for (int i = 0; i < size; ++i) {
+		
+		meanD += DataSet.at(i);
 
-		std::cout << DataSet.at(i);
+		std::cout << std::setw(2) << i;
+	       	if(DataSet.at(i) >= 0)	{
+			pCount++;
+			std::cout << "  " << std::fixed << std::showpoint << std::setprecision(4) << DataSet.at(i) << " +" << pCount << " -" << nCount;
+			
+		}
+		else {
+			nCount++;
+			std::cout << ' '  << std::fixed << std::showpoint << std::setprecision(4) << DataSet.at(i) << " +" << pCount << " -" << nCount;
+
+		}
+
+		if(meanD >= 0) {
+			std::cout << "  " << std::fixed << std::showpoint << std::setprecision(4) << meanD << std::endl;
+		}
+		else {
+			std::cout << ' ' << std::fixed << std::showpoint << std::setprecision(4) << meanD << std::endl;
+		}
 	}
 
 }

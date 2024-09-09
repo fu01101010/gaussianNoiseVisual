@@ -103,7 +103,8 @@ int main()
 	glm::mat4 view = glm::mat4(1.0f);
 	glm::mat4 projection = glm::mat4(1.0f);
 	
-	
+	gaussDataSet gaussVector = gaussDataSet(10, 0.0f, 2.0f, 2.0f);
+	gaussVector.print();	
 
 	while (!Screen.shouldClose()) {
 
