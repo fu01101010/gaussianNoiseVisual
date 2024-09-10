@@ -18,14 +18,18 @@ launch this application and see the visualisation of the gaussian white noise. t
 
   - :code:`/source`: contains the :code:`main.cpp` source file and other headers.
 
+  - :code:`/include`: contains :code:`glm`, :code:`glad` and :code:`glfw` libraries.
+
+  - :code:`/libs`: contains the :code:`.dylib` file needed to run :code:`glfw`.
+
 1.2: branches
 =============
 
-- this code has two branches:
-
-  - we commitin' minor changes and non-release versions to the :code:`develop` branch.
+- this repo has two branches:
 
   - and major release versions to the :code:`master` branch.
+
+  - we commitin' minor changes and non-release versions to the :code:`develop` branch.
 
 2: cmake
 ========
