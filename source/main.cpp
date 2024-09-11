@@ -89,9 +89,6 @@ int main()
 	vCube VCube = vCube(material::black_rubber, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.1f));
 	VCube.init();
 
-	terrain VTerrain = terrain(material::white_rubber, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3 (1.1f));
-	VTerrain.init();
-
 	spotLight SpotLight = { 
 		camera::defaultCamera.cameraPosition, camera::defaultCamera.cameraFront, 
 		glm::cos(glm::radians(12.1f)), glm::cos(glm::radians(20.1f)), 
@@ -104,7 +101,13 @@ int main()
 	glm::mat4 projection = glm::mat4(1.0f);
 	
 	gaussDataSet gaussVector = gaussDataSet(10, 0.0f, 2.0f, 2.0f);
-	gaussVector.print();	
+	gaussVector.print();
+
+	terrain VTerrain[gaussVector.size];
+	for (int i = 0; i < gaussVector.size; ++i) {
+		VTerrain[i] = terrain(material::white_rubber, glm::vec3(gaussVector.DataSet.at(i), 0.0f, gaussVector.DataSet.at(i)), glm::vec3 (1.1f));
+		VTerrain[i].init();
+	}
 
 	while (!Screen.shouldClose()) {
 
@@ -136,7 +139,9 @@ int main()
 		Shader.setmat4("projection", projection);
 
 		//VCube.render(Shader);
-		VTerrain.render(Shader);
+		for (int i = 0; i < gaussVector.size; ++i) {
+			VTerrain[i].render(Shader);
+		}
 
 		// glfw: swap buffers and poll IO events (KEYs pressed/released, mouse moved etc.)
 		
@@ -144,8 +149,10 @@ int main()
 	}
 	
 	//VCube.cleanUp();
-	VTerrain.cleanUp();
-
+	for (int i = 0; i < gaussVector.size; ++i) {
+			VTerrain[i].cleanUp();
+	}
+	
 	// glfw: terminate, clearing all previously allocated GLFW resources.
 
 	glfwTerminate();
