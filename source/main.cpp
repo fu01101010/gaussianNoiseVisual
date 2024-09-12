@@ -105,7 +105,7 @@ int main()
 
 	terrain VTerrain[gaussVector.size];
 	for (int i = 0; i < gaussVector.size; ++i) {
-		VTerrain[i] = terrain(material::white_rubber, glm::vec3(gaussVector.DataSet.at(i), 0.0f, gaussVector.DataSet.at(i)), glm::vec3 (1.1f));
+		VTerrain[i] = terrain(material::white_rubber, glm::vec3((double)i, (double)i, gaussVector.DataSet.at(i)), glm::vec3 (1.1f));
 		VTerrain[i].init();
 	}
 
