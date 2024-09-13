@@ -18,26 +18,70 @@ public:
 	glm::vec3 position;
 	glm::vec3 size;
 
+	float height;
+
 	material Material;
 
 	terrain() {}
-	terrain(material Material, glm::vec3 position, glm::vec3 size) 
-		: Material(Material), position(position), size(size) {}
+	terrain(material Material, glm::vec3 position, glm::vec3 size, float height) 
+		: Material(Material), position(position), size(size), height(height) {}
 
 	void init() {
 
-		unsigned int nItems = 6;
+		unsigned int nItems = 36;
 		std::vector<item> terrainData;
 
 		float vertices[] = {
 			//position		 normal			aColor
-			-0.5f, -0.5f, -0.5f,	 0.0f,  0.0f, 1.0f,	0.0f, 0.0f, 0.0f,
-			-0.5f,  0.5f, -0.5f,	 0.0f,  0.0f, 1.0f,	0.0f, 0.0f, 0.0f,
-			 0.5f,  0.5f, -0.5f,	 0.0f,  0.0f, 1.0f,	0.0f, 0.0f, 0.0f,
+			-0.5f, 0.0f,   -0.5f,	 0.0f,  1.0f, 0.0f,	0.0f, 0.0f, 0.0f,
+			-0.5f, 0.0f,    0.5f,	 0.0f,  1.0f, 0.0f,	0.0f, 0.0f, 0.0f,
+			 0.5f, 0.0f,    0.5f,	 0.0f,  1.0f, 0.0f,	0.0f, 0.0f, 0.0f,
 
-			-0.5f, -0.5f, -0.2f,	 0.0f,  0.0f, 1.0f,	0.0f, 0.0f, 0.0f,
-			 0.5f,  0.5f, -0.2f,	 0.0f,  0.0f, 1.0f,	0.0f, 0.0f, 0.0f,
-			 0.5f, -0.5f, -0.2f,	 0.0f,  0.0f, 1.0f,	0.0f, 0.0f, 0.0f
+			-0.5f, 0.0f,   -0.5f,	 0.0f,  1.0f, 0.0f,	0.0f, 0.0f, 0.0f,
+			 0.5f, 0.0f,    0.5f,	 0.0f,  1.0f, 0.0f,	0.0f, 0.0f, 0.0f,
+			 0.5f, 0.0f,   -0.5f,	 0.0f,  1.0f, 0.0f,	0.0f, 0.0f, 0.0f,
+
+			-0.5f, height, -0.5f,	 0.0f,  1.0f, 0.0f,	0.0f, 0.0f, 0.0f,
+			-0.5f, height,  0.5f,	 0.0f,  1.0f, 0.0f,	0.0f, 0.0f, 0.0f,
+			 0.5f, height,  0.5f,	 0.0f,  1.0f, 0.0f,	0.0f, 0.0f, 0.0f,
+
+			-0.5f, height, -0.5f,	 0.0f,  1.0f, 0.0f,	0.0f, 0.0f, 0.0f,
+			 0.5f, height,  0.5f,	 0.0f,  1.0f, 0.0f,	0.0f, 0.0f, 0.0f,
+			 0.5f, height, -0.5f,	 0.0f,  1.0f, 0.0f,	0.0f, 0.0f, 0.0f,
+
+			-0.5f, 0.0f,   -0.5f,	-1.0f,  0.0f, 0.0f,	0.0f, 0.0f, 0.0f,
+			-0.5f, 0.0f,    0.5f,	-1.0f,  0.0f, 0.0f,	0.0f, 0.0f, 0.0f,
+			-0.5f, height, -0.5f,	-1.0f,  0.0f, 0.0f,	0.0f, 0.0f, 0.0f,
+
+			-0.5f, height, -0.5f,	-1.0f,  0.0f, 0.0f,	0.0f, 0.0f, 0.0f,
+			-0.5f, height,  0.5f,	-1.0f,  0.0f, 0.0f,	0.0f, 0.0f, 0.0f,
+			-0.5f, 0.0f,    0.5f,	-1.0f,  0.0f, 0.0f,	0.0f, 0.0f, 0.0f,
+
+			-0.5f, 0.0f,   -0.5f,	 0.0f, -1.0f, 0.0f,	0.0f, 0.0f, 0.0f,
+			 0.5f, 0.0f,   -0.5f,	 0.0f, -1.0f, 0.0f,	0.0f, 0.0f, 0.0f,
+			 0.5f, height, -0.5f,	 0.0f, -1.0f, 0.0f,	0.0f, 0.0f, 0.0f,
+
+			-0.5f, height, -0.5f,	 0.0f, -1.0f, 0.0f,	0.0f, 0.0f, 0.0f,
+			 0.5f, height, -0.5f,	 0.0f, -1.0f, 0.0f,	0.0f, 0.0f, 0.0f,
+			-0.5f, 0.0f,   -0.5f,	 0.0f, -1.0f, 0.0f,	0.0f, 0.0f, 0.0f,
+
+			 0.5f, 0.0f,   -0.5f,	 0.0f,  0.0f, 1.0f,	0.0f, 0.0f, 0.0f,
+			 0.5f, 0.0f,    0.5f,	 0.0f,  0.0f, 1.0f,	0.0f, 0.0f, 0.0f,
+			 0.5f, height, -0.5f,	 0.0f,  0.0f, 1.0f,	0.0f, 0.0f, 0.0f,
+
+			 0.5f, height, -0.5f,	 0.0f,  0.0f, 1.0f,	0.0f, 0.0f, 0.0f,
+			 0.5f, height,  0.5f,	 0.0f,  0.0f, 1.0f,	0.0f, 0.0f, 0.0f,
+			 0.5f, 0.0f,    0.5f,	 0.0f,  0.0f, 1.0f,	0.0f, 0.0f, 0.0f,
+
+			 0.5f, 0.0f,    0.5f,	 0.0f,  1.0f, 0.0f,	0.0f, 0.0f, 0.0f,
+			-0.5f, 0.0f,    0.5f,	 0.0f,  1.0f, 0.0f,	0.0f, 0.0f, 0.0f,
+			 0.5f, height,  0.5f,	 0.0f,  1.0f, 0.0f,	0.0f, 0.0f, 0.0f,
+
+			 0.5f, height,  0.5f,	 0.0f,  1.0f, 0.0f,	0.0f, 0.0f, 0.0f,
+			-0.5f, height,  0.5f,	 0.0f,  1.0f, 0.0f,	0.0f, 0.0f, 0.0f,
+			-0.5f, 0.0f,    0.5f,	 0.0f,  1.0f, 0.0f,	0.0f, 0.0f, 0.0f,
+
+
 
 		};
 

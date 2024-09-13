@@ -46,6 +46,8 @@ float x, y, z;
 double dx, dy;
 double scrollDX, scrollDY;
 
+int parseSize = 2500;
+
 glm::mat4 transformationMatrix = glm::mat4(1.0f);
 
 screen Screen;
@@ -83,7 +85,7 @@ int main()
 
 	Screen.setParameters();
 
-	shader Shader("/Users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/shaders/core.vs", "/Users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/shaders/core.fs");
+	shader Shader("/Users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/shaders/core.vs", "/Users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/shaders/nofade_core.fs");
 	shader lightsourceShader("/Users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/shaders/core.vs", "/Users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/shaders/lightsource.fs");
 
 	vCube VCube = vCube(material::black_rubber, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.1f));
@@ -91,7 +93,7 @@ int main()
 
 	spotLight SpotLight = { 
 		camera::defaultCamera.cameraPosition, camera::defaultCamera.cameraFront, 
-		glm::cos(glm::radians(12.1f)), glm::cos(glm::radians(20.1f)), 
+		glm::cos(glm::radians(50.1f)), glm::cos(glm::radians(90.1f)), 
 		1.0f, 0.07f, 0.032f, glm::vec3(0.0f), glm::vec3(1.0f), glm::vec3(1.0f)
 	};
 
@@ -100,12 +102,21 @@ int main()
 	glm::mat4 view = glm::mat4(1.0f);
 	glm::mat4 projection = glm::mat4(1.0f);
 	
-	gaussDataSet gaussVector = gaussDataSet(10, 0.0f, 2.0f, 2.0f);
+	gaussDataSet gaussVector = gaussDataSet(parseSize, 0.0f, 2.0f, 2.0f);
 	gaussVector.print();
+
+	std::vector<glm::vec2> dots(parseSize);
+	
+	for (int i = 0; i < parseSize; ++i) {
+		
+		dots.at(i) = glm::vec2(i / (int)pow(parseSize,0.5), i % (int)pow(parseSize,0.5));
+	}
 
 	terrain VTerrain[gaussVector.size];
 	for (int i = 0; i < gaussVector.size; ++i) {
-		VTerrain[i] = terrain(material::white_rubber, glm::vec3((double)i, (double)i, gaussVector.DataSet.at(i)), glm::vec3 (1.1f));
+		//VTerrain[i] = terrain(material::white_rubber, glm::vec3(dots.at(i).x, 1.0f, dots.at(i).y), glm::vec3 (1.0f), gaussVector.DataSet.at(i));
+		VTerrain[i] = terrain(material::white_rubber, glm::vec3(dots.at(i).x, -gaussVector.DataSet.at(i), dots.at(i).y), glm::vec3 (1.0f), gaussVector.DataSet.at(i));
+
 		VTerrain[i].init();
 	}
 
@@ -210,5 +221,14 @@ void processInput(double dt) {
 
 		camera::defaultCamera.updateCameraZoom(scrollDY);
 	}
+
+	if (keyboard::keyWentDn(GLFW_KEY_UP)) {
+		parseSize++;
+	}
+
+	if (keyboard::keyWentDn(GLFW_KEY_DOWN) && parseSize > 1) {
+		parseSize--;
+	}
+
 
 }
