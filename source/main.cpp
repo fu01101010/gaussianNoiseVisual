@@ -46,7 +46,8 @@ float x, y, z;
 double dx, dy;
 double scrollDX, scrollDY;
 
-int parseSize = 2500;
+int parseSize = 1;
+bool reloadTerrain = false;
 
 glm::mat4 transformationMatrix = glm::mat4(1.0f);
 
@@ -101,26 +102,26 @@ int main()
 
 	glm::mat4 view = glm::mat4(1.0f);
 	glm::mat4 projection = glm::mat4(1.0f);
-	
-	gaussDataSet gaussVector = gaussDataSet(parseSize, 0.0f, 2.0f, 2.0f);
-	gaussVector.print();
-
-	std::vector<glm::vec2> dots(parseSize);
-	
-	for (int i = 0; i < parseSize; ++i) {
 		
-		dots.at(i) = glm::vec2(i / (int)pow(parseSize,0.5), i % (int)pow(parseSize,0.5));
-	}
+	//initialize gaussVector
+	gaussDataSet gaussVector = gaussDataSet(parseSize * parseSize, 0.0f, 2.0f, 2.0f);
 
-	terrain VTerrain[gaussVector.size];
+	//initialize positionsVector
+	std::vector<glm::vec2> dots(gaussVector.size);
+	
+	//create initial terrain
+	std::vector<terrain> VTerrain(gaussVector.size);
 	for (int i = 0; i < gaussVector.size; ++i) {
-		//VTerrain[i] = terrain(material::white_rubber, glm::vec3(dots.at(i).x, 1.0f, dots.at(i).y), glm::vec3 (1.0f), gaussVector.DataSet.at(i));
-		VTerrain[i] = terrain(material::white_rubber, glm::vec3(dots.at(i).x, -gaussVector.DataSet.at(i), dots.at(i).y), glm::vec3 (1.0f), gaussVector.DataSet.at(i));
+		dots.push_back(glm::vec2(i / parseSize, i % parseSize));
 
-		VTerrain[i].init();
+		//VTerrain[i] = terrain(material::white_rubber, glm::vec3(dots.at(i).x, 1.0f, dots.at(i).y), glm::vec3 (1.0f), gaussVector.DataSet.at(i));
+		VTerrain.push_back(terrain(material::white_rubber, glm::vec3(dots.at(i).x, -gaussVector.DataSet.at(i), dots.at(i).y), glm::vec3 (1.0f), gaussVector.DataSet.at(i)));
+
+		VTerrain.at(i).init();
 	}
 
 	while (!Screen.shouldClose()) {
+		reloadTerrain = false;
 
 		currentTime = glfwGetTime();
 		dt = currentTime - lastFrame;
@@ -130,6 +131,28 @@ int main()
 		Screen.update();
 		
 		processInput(dt);
+		
+		if (reloadTerrain) {
+				std::cout << "reloading terrain..." << parseSize << std::endl;
+				gaussVector.regen(parseSize * parseSize);
+				gaussVector.print();
+				
+				VTerrain.clear();
+				dots.clear();
+				for (int i = 0; i < gaussVector.size; ++i) {
+
+					dots.push_back(glm::vec2(((i) / (parseSize)), ((i) % parseSize)));
+
+					std::cout << dots.at(i).x / parseSize << ' ' << dots.at(i).x << ' ' << dots.at(i).y / parseSize << ' ' << dots.at(i).y << std::endl;
+
+					//VTerrain[i] = terrain(material::white_rubber, glm::vec3(dots.at(i).x, 1.0f, dots.at(i).y), glm::vec3 (1.0f), gaussVector.DataSet.at(i));
+						VTerrain.push_back(terrain(material::white_rubber, glm::vec3((dots.at(i).x / parseSize), -gaussVector.DataSet.at(i), (dots.at(i).y / parseSize)), glm::vec3 (1.0f / parseSize), (gaussVector.DataSet.at(i))));
+
+						VTerrain.at(i).init();
+				}
+				
+				std::cout << "finished reloading terrain..." << std::endl << "its now size " << parseSize << '(' << gaussVector.size << ") elements" << std::endl;
+		}
 
 		// create transformations for the screen
 		view = camera::defaultCamera.getViewMatrix();
@@ -151,7 +174,7 @@ int main()
 
 		//VCube.render(Shader);
 		for (int i = 0; i < gaussVector.size; ++i) {
-			VTerrain[i].render(Shader);
+			VTerrain.at(i).render(Shader);
 		}
 
 		// glfw: swap buffers and poll IO events (KEYs pressed/released, mouse moved etc.)
@@ -222,12 +245,14 @@ void processInput(double dt) {
 		camera::defaultCamera.updateCameraZoom(scrollDY);
 	}
 
-	if (keyboard::keyWentDn(GLFW_KEY_UP)) {
+	if (keyboard::keyWentDn(GLFW_KEY_O) && parseSize < 49) {
 		parseSize++;
+		reloadTerrain = true;
 	}
 
-	if (keyboard::keyWentDn(GLFW_KEY_DOWN) && parseSize > 1) {
+	if (keyboard::keyWentDn(GLFW_KEY_L) && parseSize > 1) {
 		parseSize--;
+		reloadTerrain = true;
 	}
 
 

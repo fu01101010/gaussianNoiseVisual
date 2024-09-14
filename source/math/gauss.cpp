@@ -18,6 +18,20 @@ void gaussDataSet::init() {
 	
 }
 
+void gaussDataSet::regen(double newSize) {
+	
+	size = newSize;	
+	DataSet.clear();
+
+	std::default_random_engine generator;
+	std::normal_distribution<double> distribution(mean, sdev);
+	
+	for (int i = 0; i < size; ++i) {
+
+		DataSet.push_back(distribution(generator));
+	}
+}
+
 void gaussDataSet::print() {
 	
 	int pCount = 0;

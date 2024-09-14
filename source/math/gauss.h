@@ -23,7 +23,8 @@ public:
 	gaussDataSet(int size, float mean,  float sdev,  float disp);
 
 	void init();
-
+	void regen(double newSize);
+			
 	void print();
 };
 
