@@ -146,7 +146,7 @@ int main()
 					std::cout << dots.at(i).x / parseSize << ' ' << dots.at(i).x << ' ' << dots.at(i).y / parseSize << ' ' << dots.at(i).y << std::endl;
 
 					//VTerrain[i] = terrain(material::white_rubber, glm::vec3(dots.at(i).x, 1.0f, dots.at(i).y), glm::vec3 (1.0f), gaussVector.DataSet.at(i));
-						VTerrain.push_back(terrain(material::white_rubber, glm::vec3((dots.at(i).x / parseSize), -gaussVector.DataSet.at(i), (dots.at(i).y / parseSize)), glm::vec3 (1.0f / parseSize), (gaussVector.DataSet.at(i))));
+						VTerrain.push_back(terrain(material::white_rubber, glm::vec3((dots.at(i).x / parseSize), 0.0f, (dots.at(i).y / parseSize)), glm::vec3 (1.0f / (parseSize)), (gaussVector.DataSet.at(i))));
 
 						VTerrain.at(i).init();
 				}
