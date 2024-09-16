@@ -95,3 +95,8 @@ launch this application and see the visualisation of the gaussian white noise. t
   - :code:`cd ../bin`: enters the /bin directory.
 
   - :code:`./gaussN`: launches the executable.
+
+4: versions
+===========
+
+- :code:`v0.1.0` - basic noise generator w/o UI. use arrow keys to move the camera.
