@@ -101,6 +101,7 @@ public:
 
 		model = glm::translate(model, position);
 		model = glm::scale(model, size);
+
 		//model = glm::rotate(model, (float)glfwGetTime() * glm::radians(-45.0f), glm::vec3(0.5f));
 
 		Shader.setmat4("model", model);

@@ -54,6 +54,8 @@ glm::mat4 transformationMatrix = glm::mat4(1.0f);
 screen Screen;
 camera camera::defaultCamera(glm::vec3(0.0f, 0.0f, 3.0f));
 
+glm::mat4 model = glm::mat4(1.0f);
+
 int main()
 {
 	int success;
@@ -230,7 +232,7 @@ void processInput(double dt) {
 		camera::defaultCamera.updateCameraPosition(cameraDirection::DOWN, dt);
 	}
 
-	dx = mouse::getDX();
+s	dx = mouse::getDX();
 	dy = mouse::getDY();
 
 	if (dx != 0 || dy != 0) {
