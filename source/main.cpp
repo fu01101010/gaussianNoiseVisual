@@ -32,8 +32,6 @@
 
 void processInput(double dt);
 
-std::string loadShaderSrc(const char* filename);
-
 // settings
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
@@ -54,7 +52,7 @@ glm::mat4 transformationMatrix = glm::mat4(1.0f);
 screen Screen;
 camera camera::defaultCamera(glm::vec3(0.0f, 0.0f, 3.0f));
 
-glm::mat4 model = glm::mat4(1.0f);
+
 
 int main()
 {
@@ -91,8 +89,8 @@ int main()
 	shader Shader("/Users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/shaders/core.vs", "/Users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/shaders/nofade_core.fs");
 	shader lightsourceShader("/Users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/shaders/core.vs", "/Users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/shaders/lightsource.fs");
 
-	vCube VCube = vCube(material::black_rubber, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.1f));
-	VCube.init();
+	//vCube VCube = vCube(material::black_rubber, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.1f));
+	//VCube.init();
 
 	spotLight SpotLight = { 
 		camera::defaultCamera.cameraPosition, camera::defaultCamera.cameraFront, 
@@ -135,25 +133,33 @@ int main()
 		processInput(dt);
 		
 		if (reloadTerrain) {
-				std::cout << "reloading terrain..." << parseSize << std::endl;
+				//reloading terrain
 				gaussVector.regen(parseSize * parseSize);
-				gaussVector.print();
+
+				//uncomment to see values
+				//gaussVector.print();
 				
+				//clearing data
 				VTerrain.clear();
+
+				//clearing data
 				dots.clear();
+
+
 				for (int i = 0; i < gaussVector.size; ++i) {
 
 					dots.push_back(glm::vec2(((i) / (parseSize)), ((i) % parseSize)));
-
-					std::cout << dots.at(i).x / parseSize << ' ' << dots.at(i).x << ' ' << dots.at(i).y / parseSize << ' ' << dots.at(i).y << std::endl;
+					
+					//uncomment to see values
+					//std::cout << dots.at(i).x / parseSize << ' ' << dots.at(i).x << ' ' << dots.at(i).y / parseSize << ' ' << dots.at(i).y << std::endl;
 
 					//VTerrain[i] = terrain(material::white_rubber, glm::vec3(dots.at(i).x, 1.0f, dots.at(i).y), glm::vec3 (1.0f), gaussVector.DataSet.at(i));
-						VTerrain.push_back(terrain(material::white_rubber, glm::vec3((dots.at(i).x / parseSize), 0.0f, (dots.at(i).y / parseSize)), glm::vec3 (1.0f / (parseSize)), (gaussVector.DataSet.at(i))));
+					VTerrain.push_back(terrain(material::white_rubber, glm::vec3((dots.at(i).x / parseSize), 0.0f, (dots.at(i).y / parseSize)), glm::vec3 (1.0f / (parseSize)), (gaussVector.DataSet.at(i))));
 
-						VTerrain.at(i).init();
+					VTerrain.at(i).init();
 				}
 				
-				std::cout << "finished reloading terrain..." << std::endl << "its now size " << parseSize << '(' << gaussVector.size << ") elements" << std::endl;
+				//finished reloading terrain with vectors the size of parseSize*parseSize and gaussVector.size elements
 		}
 
 		// create transformations for the screen
