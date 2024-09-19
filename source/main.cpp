@@ -52,7 +52,7 @@ glm::mat4 transformationMatrix = glm::mat4(1.0f);
 screen Screen;
 camera camera::defaultCamera(glm::vec3(0.0f, 0.0f, 3.0f));
 
-
+vCube VCube = vCube(material::emerald, glm::vec3(1.5f, 1.5f, 1.5f), glm::vec3(0.1f));
 
 int main()
 {
@@ -89,8 +89,7 @@ int main()
 	shader Shader("/Users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/shaders/core.vs", "/Users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/shaders/nofade_core.fs");
 	shader lightsourceShader("/Users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/shaders/core.vs", "/Users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/shaders/lightsource.fs");
 
-	//vCube VCube = vCube(material::black_rubber, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.1f));
-	//VCube.init();
+	VCube.init();
 
 	spotLight SpotLight = { 
 		camera::defaultCamera.cameraPosition, camera::defaultCamera.cameraFront, 
@@ -180,7 +179,7 @@ int main()
 		Shader.setmat4("view", view);
 		Shader.setmat4("projection", projection);
 
-		//VCube.render(Shader);
+		VCube.render(Shader);
 		for (int i = 0; i < gaussVector.size; ++i) {
 			VTerrain.at(i).render(Shader);
 		}
@@ -190,7 +189,7 @@ int main()
 		Screen.newFrame();
 	}
 	
-	//VCube.cleanUp();
+	VCube.cleanUp();
 	for (int i = 0; i < gaussVector.size; ++i) {
 			VTerrain[i].cleanUp();
 	}
@@ -238,7 +237,12 @@ void processInput(double dt) {
 		camera::defaultCamera.updateCameraPosition(cameraDirection::DOWN, dt);
 	}
 
-s	dx = mouse::getDX();
+	if (keyboard::key(GLFW_KEY_DOWN)) {
+		
+				
+	}
+
+	dx = mouse::getDX();
 	dy = mouse::getDY();
 
 	if (dx != 0 || dy != 0) {
