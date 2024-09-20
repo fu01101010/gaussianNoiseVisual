@@ -54,6 +54,8 @@ camera camera::defaultCamera(glm::vec3(0.0f, 0.0f, 3.0f));
 
 vCube VCube = vCube(material::emerald, glm::vec3(1.5f, 1.5f, 1.5f), glm::vec3(0.1f));
 
+float test_x = 0.0f, test_y = 0.0f, test_z = 0.0f;
+
 int main()
 {
 	int success;
@@ -237,10 +239,26 @@ void processInput(double dt) {
 		camera::defaultCamera.updateCameraPosition(cameraDirection::DOWN, dt);
 	}
 
+	if (keyboard::key(GLFW_KEY_UP)) {
+		
+		std::out << "UP arrow key pressed" << std::endl;		
+	}
+
+	if (keyboard::key(GLFW_KEY_LEFT)) {
+		
+		std::out << "LEFT arrow key pressed" << std::endl;			
+	}
+
 	if (keyboard::key(GLFW_KEY_DOWN)) {
 		
-				
+		std::out << "DOWN arrow key pressed" << std::endl;			
 	}
+
+	if (keyboard::key(GLFW_KEY_RIGHT)) {
+		
+		std::out << "RIGHT arrow key pressed" << std::endl;			
+	}
+
 
 	dx = mouse::getDX();
 	dy = mouse::getDY();
