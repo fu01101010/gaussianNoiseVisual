@@ -100,3 +100,5 @@ launch this application and see the visualisation of the gaussian white noise. t
 ===========
 
 - :code:`v0.1.0` - basic noise generator w/o UI. use arrow keys to move the camera.
+
+- :code:`v0.2.0` - noise generator w UI. click on the text to change distribution values.
