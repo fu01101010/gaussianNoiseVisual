@@ -241,22 +241,26 @@ void processInput(double dt) {
 
 	if (keyboard::key(GLFW_KEY_UP)) {
 		
-		std::out << "UP arrow key pressed" << std::endl;		
+		std::cout << "UP arrow key pressed" << std::endl;
+
+		test_x = test_x * glm::cos(glm::radians(0.1f)) + test_y * glm::sin(glm::radians(0.1f));
+
+		std::cout << "x: " << test_x << std::endl;	
 	}
 
 	if (keyboard::key(GLFW_KEY_LEFT)) {
 		
-		std::out << "LEFT arrow key pressed" << std::endl;			
+		std::cout << "LEFT arrow key pressed" << std::endl;			
 	}
 
 	if (keyboard::key(GLFW_KEY_DOWN)) {
 		
-		std::out << "DOWN arrow key pressed" << std::endl;			
+		std::cout << "DOWN arrow key pressed" << std::endl;			
 	}
 
 	if (keyboard::key(GLFW_KEY_RIGHT)) {
 		
-		std::out << "RIGHT arrow key pressed" << std::endl;			
+		std::cout << "RIGHT arrow key pressed" << std::endl;			
 	}
 
 
