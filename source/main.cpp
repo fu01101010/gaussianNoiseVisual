@@ -189,6 +189,8 @@ int main()
 		// glfw: swap buffers and poll IO events (KEYs pressed/released, mouse moved etc.)
 		
 		Screen.newFrame();
+
+		std::cout << camera::defaultCamera.cameraPosition.x << ' ' << camera::defaultCamera.cameraPosition.y << ' ' << camera::defaultCamera.cameraPosition.z << std::endl;
 	}
 	
 	VCube.cleanUp();
@@ -288,6 +290,5 @@ void processInput(double dt) {
 		parseSize--;
 		reloadTerrain = true;
 	}
-
 
 }

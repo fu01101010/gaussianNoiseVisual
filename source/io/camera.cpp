@@ -98,7 +98,9 @@ float camera::getZoom() {
 
 glm::mat4 camera::getViewMatrix() {
 
-	return glm::lookAt(cameraPosition, cameraPosition + cameraFront, cameraUp);
+	//return glm::lookAt(cameraPosition, cameraPosition + cameraFront, cameraUp);
+	return glm::lookAt(cameraPosition, glm::vec3(0.0f), cameraUp);
+
 };
 
 void camera::updateCameraVectors() {
@@ -108,7 +110,7 @@ void camera::updateCameraVectors() {
 	direction.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
 	direction.y = sin(glm::radians(pitch));
 	direction.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
-
+	
 	cameraFront = glm::normalize(direction);
 	cameraRight = glm::normalize(glm::cross(cameraFront, worldUp));
 	cameraUp = glm::normalize(glm::cross(cameraRight, cameraFront));
