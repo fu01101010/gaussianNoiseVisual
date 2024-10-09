@@ -173,7 +173,6 @@ int main()
 		SpotLight.position = camera::defaultCamera.cameraPosition;
 		SpotLight.direction = camera::defaultCamera.cameraFront;
 		SpotLight.render(Shader);
-		
 
 		// draw triangle
 		//glDrawArrays(GL_TRIANGLES, 0, 3);
@@ -190,7 +189,7 @@ int main()
 		
 		Screen.newFrame();
 
-		std::cout << camera::defaultCamera.cameraPosition.x << ' ' << camera::defaultCamera.cameraPosition.y << ' ' << camera::defaultCamera.cameraPosition.z << std::endl;
+		//std::cout << camera::defaultCamera.cameraPosition.x << ' ' << camera::defaultCamera.cameraPosition.y << ' ' << camera::defaultCamera.cameraPosition.z << std::endl;
 	}
 	
 	VCube.cleanUp();
@@ -211,60 +210,15 @@ void processInput(double dt) {
 	if(keyboard::key(GLFW_KEY_ESCAPE))
 		Screen.setShouldClose(true);
 
-	if (keyboard::key(GLFW_KEY_E)) {
-
-		camera::defaultCamera.updateCameraPosition(cameraDirection::FORWARD, dt);
-	}
-
-	if (keyboard::key(GLFW_KEY_S)) {
-
-		camera::defaultCamera.updateCameraPosition(cameraDirection::LEFT, dt);
-	}
-
-	if (keyboard::key(GLFW_KEY_D)) {
-
-		camera::defaultCamera.updateCameraPosition(cameraDirection::BACKWARD, dt);
-	}
-
-	if (keyboard::key(GLFW_KEY_F)) {
-
-		camera::defaultCamera.updateCameraPosition(cameraDirection::RIGHT, dt);
-	}
-
-	if (keyboard::key(GLFW_KEY_SPACE)) {
-
-		camera::defaultCamera.updateCameraPosition(cameraDirection::UP, dt);
-	}
-
-	if (keyboard::key(GLFW_KEY_LEFT_SHIFT)) {
-
-		camera::defaultCamera.updateCameraPosition(cameraDirection::DOWN, dt);
-	}
-
-	if (keyboard::key(GLFW_KEY_UP)) {
-		
-		std::cout << "UP arrow key pressed" << std::endl;
-
-		test_x = test_x * glm::cos(glm::radians(0.1f)) + test_y * glm::sin(glm::radians(0.1f));
-
-		std::cout << "x: " << test_x << std::endl;	
-	}
-
 	if (keyboard::key(GLFW_KEY_LEFT)) {
 		
 		std::cout << "LEFT arrow key pressed" << std::endl;			
-	}
-
-	if (keyboard::key(GLFW_KEY_DOWN)) {
-		
-		std::cout << "DOWN arrow key pressed" << std::endl;			
 	}
 
 	if (keyboard::key(GLFW_KEY_RIGHT)) {
 		
 		std::cout << "RIGHT arrow key pressed" << std::endl;			
 	}
-
 
 	dx = mouse::getDX();
 	dy = mouse::getDY();
@@ -281,14 +235,13 @@ void processInput(double dt) {
 		camera::defaultCamera.updateCameraZoom(scrollDY);
 	}
 
-	if (keyboard::keyWentDn(GLFW_KEY_O) && parseSize < 49) {
+	if (keyboard::keyWentDn(GLFW_KEY_UP) && parseSize < 49) {
 		parseSize++;
 		reloadTerrain = true;
 	}
 
-	if (keyboard::keyWentDn(GLFW_KEY_L) && parseSize > 1) {
+	if (keyboard::keyWentDn(GLFW_KEY_DOWN) && parseSize > 1) {
 		parseSize--;
 		reloadTerrain = true;
 	}
-
 }
