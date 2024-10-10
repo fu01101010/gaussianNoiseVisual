@@ -82,7 +82,7 @@ public:
 
 		model = glm::translate(model, position);
 		model = glm::scale(model, size);
-		//model = glm::rotate(model, (float)glfwGetTime() * glm::radians(-45.0f), glm::vec3(0.5f));
+		//model = glm::rotate(model, (float)glfwGetTime() * glm::radians(-45.0f), glm::vec3(1.0f));
 
 		Shader.setmat4("model", model);
 		Shader.set3flt("Material.ambient", Material.ambient);

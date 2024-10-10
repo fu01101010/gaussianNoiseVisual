@@ -50,11 +50,15 @@ bool reloadTerrain = false;
 glm::mat4 transformationMatrix = glm::mat4(1.0f);
 
 screen Screen;
-camera camera::defaultCamera(glm::vec3(0.0f, 0.0f, 3.0f));
+camera camera::defaultCamera(glm::vec3(4.0f, 4.0f, 4.0f));
 
-vCube VCube = vCube(material::emerald, glm::vec3(1.5f, 1.5f, 1.5f), glm::vec3(0.1f));
+float rotationAngle = 0.0f;
+float rotationR = std::pow(2, 0.5) * camera::defaultCamera.cameraPosition.x;
+float rotationX = camera::defaultCamera.cameraPosition.x;
+float rotationZ = camera::defaultCamera.cameraPosition.z;
 
-float test_x = 0.0f, test_y = 0.0f, test_z = 0.0f;
+glm::vec3 test = glm::vec3(1.5f);
+vCube VCube = vCube(material::emerald, test, glm::vec3(0.1f));
 
 int main()
 {
@@ -167,6 +171,10 @@ int main()
 		view = camera::defaultCamera.getViewMatrix();
 		projection = glm::perspective(glm::radians(camera::defaultCamera.getZoom()), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
 
+		//camera::defaultCamera.yaw += 1;
+		//std::cout << camera::defaultCamera.yaw << std::endl;
+		//std::cout << camera::defaultCamera.pitch << std::endl;
+
 		Shader.activate();
 		Shader.set3flt("viewPos", camera::defaultCamera.cameraPosition);
 		
@@ -181,6 +189,7 @@ int main()
 		Shader.setmat4("projection", projection);
 
 		VCube.render(Shader);
+
 		for (int i = 0; i < gaussVector.size; ++i) {
 			VTerrain.at(i).render(Shader);
 		}
@@ -190,6 +199,27 @@ int main()
 		Screen.newFrame();
 
 		//std::cout << camera::defaultCamera.cameraPosition.x << ' ' << camera::defaultCamera.cameraPosition.y << ' ' << camera::defaultCamera.cameraPosition.z << std::endl;
+		
+		if (rotationAngle != 360.0f)
+			rotationAngle += 0.1f;
+		else rotationAngle = 0.0f;
+
+		//std::cout << rotationAngle << ' ' << ((int)camera::defaultCamera.yaw)%360 << std::endl;
+
+		camera::defaultCamera.yaw = rotationAngle - 180.0f;
+		camera::defaultCamera.updateCameraDirection(0.0f, 0.0f);
+
+		rotationX = rotationR * glm::cos(glm::radians(rotationAngle));	
+		rotationZ = rotationR * glm::sin(glm::radians(rotationAngle));
+
+		camera::defaultCamera.cameraPosition.x = rotationX;
+		camera::defaultCamera.cameraPosition.z = rotationZ;
+
+		//std::cout << rotationX << ' ' << rotationZ << std::endl;
+		
+		//std::cout << std::asin(camera::defaultCamera.cameraPosition.y / (std::pow(2, 0.5) * camera::defaultCamera.cameraPosition.y));
+		//std::cout << camera::defaultCamera.pitch << std::endl;
+
 	}
 	
 	VCube.cleanUp();
@@ -220,13 +250,15 @@ void processInput(double dt) {
 		std::cout << "RIGHT arrow key pressed" << std::endl;			
 	}
 
+	/*
 	dx = mouse::getDX();
 	dy = mouse::getDY();
-
+	
 	if (dx != 0 || dy != 0) {
 
 		camera::defaultCamera.updateCameraDirection(dx, dy);
 	}
+	*/
 
 	scrollDY = mouse::getScrollDY();
 
