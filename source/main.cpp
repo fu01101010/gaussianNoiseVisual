@@ -46,6 +46,7 @@ double scrollDX, scrollDY;
 
 int parseSize = 1;
 bool reloadTerrain = false;
+float compIncrement;
 
 glm::mat4 transformationMatrix = glm::mat4(1.0f);
 
@@ -58,7 +59,6 @@ float rotationX = camera::defaultCamera.cameraPosition.x;
 float rotationZ = camera::defaultCamera.cameraPosition.z;
 
 glm::vec3 test = glm::vec3(1.5f);
-vCube VCube = vCube(material::emerald, test, glm::vec3(0.1f));
 
 int main()
 {
@@ -94,8 +94,6 @@ int main()
 
 	shader Shader("/Users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/shaders/core.vs", "/Users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/shaders/nofade_core.fs");
 	shader lightsourceShader("/Users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/shaders/core.vs", "/Users/ulysses/Desktop/source/projects/gaussianNoiseVisual/source/shaders/lightsource.fs");
-
-	VCube.init();
 
 	spotLight SpotLight = { 
 		camera::defaultCamera.cameraPosition, camera::defaultCamera.cameraFront, 
@@ -150,6 +148,7 @@ int main()
 				//clearing data
 				dots.clear();
 
+				compIncrement = ((gaussVector.size - 1) / (parseSize)) / 2.0f;
 
 				for (int i = 0; i < gaussVector.size; ++i) {
 
@@ -159,7 +158,7 @@ int main()
 					//std::cout << dots.at(i).x / parseSize << ' ' << dots.at(i).x << ' ' << dots.at(i).y / parseSize << ' ' << dots.at(i).y << std::endl;
 
 					//VTerrain[i] = terrain(material::white_rubber, glm::vec3(dots.at(i).x, 1.0f, dots.at(i).y), glm::vec3 (1.0f), gaussVector.DataSet.at(i));
-					VTerrain.push_back(terrain(material::white_rubber, glm::vec3((dots.at(i).x / parseSize), 0.0f, (dots.at(i).y / parseSize)), glm::vec3 (1.0f / (parseSize)), (gaussVector.DataSet.at(i))));
+					VTerrain.push_back(terrain(material::white_rubber, glm::vec3((((dots.at(i).x - compIncrement) / parseSize)), 0.0f, (((dots.at(i).y  - compIncrement)/ parseSize))), glm::vec3 (1.0f / (parseSize)), (gaussVector.DataSet.at(i) * parseSize / 5)));
 
 					VTerrain.at(i).init();
 				}
@@ -188,8 +187,6 @@ int main()
 		Shader.setmat4("view", view);
 		Shader.setmat4("projection", projection);
 
-		VCube.render(Shader);
-
 		for (int i = 0; i < gaussVector.size; ++i) {
 			VTerrain.at(i).render(Shader);
 		}
@@ -200,10 +197,7 @@ int main()
 
 		//std::cout << camera::defaultCamera.cameraPosition.x << ' ' << camera::defaultCamera.cameraPosition.y << ' ' << camera::defaultCamera.cameraPosition.z << std::endl;
 		
-		if (rotationAngle != 360.0f)
-			rotationAngle += 0.1f;
-		else rotationAngle = 0.0f;
-
+	
 		//std::cout << rotationAngle << ' ' << ((int)camera::defaultCamera.yaw)%360 << std::endl;
 
 		camera::defaultCamera.yaw = rotationAngle - 180.0f;
@@ -221,12 +215,7 @@ int main()
 		//std::cout << camera::defaultCamera.pitch << std::endl;
 
 	}
-	
-	VCube.cleanUp();
-	for (int i = 0; i < gaussVector.size; ++i) {
-			VTerrain[i].cleanUp();
-	}
-	
+		
 	// glfw: terminate, clearing all previously allocated GLFW resources.
 
 	glfwTerminate();
@@ -242,12 +231,21 @@ void processInput(double dt) {
 
 	if (keyboard::key(GLFW_KEY_LEFT)) {
 		
-		std::cout << "LEFT arrow key pressed" << std::endl;			
+		if (rotationAngle != 360.0f)
+			rotationAngle += 1.0f;
+		else rotationAngle = 0.0f;
+
+
+		//std::cout << "LEFT arrow key pressed" << std::endl;			
 	}
 
 	if (keyboard::key(GLFW_KEY_RIGHT)) {
+
+		if (rotationAngle != 0.0f)
+			rotationAngle -= 1.0f;
+		else rotationAngle = 360.0f;
 		
-		std::cout << "RIGHT arrow key pressed" << std::endl;			
+		//std::cout << "RIGHT arrow key pressed" << std::endl;			
 	}
 
 	/*
@@ -260,19 +258,21 @@ void processInput(double dt) {
 	}
 	*/
 
+	/*
 	scrollDY = mouse::getScrollDY();
 
 	if (scrollDY != 0) {
 
 		camera::defaultCamera.updateCameraZoom(scrollDY);
 	}
+	*/
 
 	if (keyboard::keyWentDn(GLFW_KEY_UP) && parseSize < 49) {
 		parseSize++;
 		reloadTerrain = true;
 	}
 
-	if (keyboard::keyWentDn(GLFW_KEY_DOWN) && parseSize > 1) {
+	if (keyboard::keyWentDn(GLFW_KEY_DOWN) && parseSize > 2) {
 		parseSize--;
 		reloadTerrain = true;
 	}
